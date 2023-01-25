@@ -1,0 +1,33 @@
+
+#root {
+  max-width: 1280px;
+    height: 700px;
+    max-height: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+    background-color: #242424;
+    color: #ffffff;
+    overflow: scroll;
+}
+ .app-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+ }
+ .heading{
+     font-family: 'Poppins', sans-serif;
+ }
+ .app-input{
+   height: 20px;
+     width: 200px;
+     margin: 20px;
+ }
+ .app-image{
+     width: 350px;
+     max-width: 500px;
+     margin-top:20px;
+
+ }
