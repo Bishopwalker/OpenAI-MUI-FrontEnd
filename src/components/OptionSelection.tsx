@@ -23,7 +23,7 @@ const [message,setMessage]=React.useState<string >('Welcome to the Open AI Image
                      onMouseEnter={()=>setMessage(item.name)}
                      onClick={()=> {
                          setSelectedItem(item.option),
-                             setSelection(item.description)
+                             setSelection(item.name)
                      }}>
                     <h3>#{index} {item.name}</h3>
                     <p>{item.description}</p>

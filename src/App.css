@@ -5,10 +5,7 @@
     max-height: 700px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
-    background-color: #242424;
-    color: #ffffff;
-    overflow: scroll;
+     background: #f0f0f5;
 }
  .app-main{
     display: flex;

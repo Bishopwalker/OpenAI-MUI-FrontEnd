@@ -20,5 +20,5 @@ app.post('/image', ctrl.image);
 app.post('/text', ctrl.text);
 
 app.listen(port, () => {
-    console.log(`Open AI chat GPT conversation 33 :${port}`)
+    console.log(`Open AI chat GPT conversation 333 :${port}`)
 }   );
