@@ -6,7 +6,7 @@ type Props ={
     setSelection:(message:string)=>void,
 
 }
-type Options = typeof import('./AIOptions/index').items[number]['option'];
+type Options = typeof import('./AIOptions').items[number]['option'];
 
 //Create an OptionSelection component that will take in an array of items of type arrayItems
 const OptionSelection = ({arrayItems,setSelectedItem, setSelection}:Props) => {

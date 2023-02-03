@@ -3,7 +3,7 @@ import {Box} from "@mui/material";
 import {Colors} from "../theme";
 import Typography from "@mui/material/Typography";
 import '@fontsource/Montez'
-import {ReactNode} from "react";
+import AppBar from '@mui/material/AppBar';
 
 export const AppbarContainer = styled(Box)(() => ({
 
@@ -11,18 +11,21 @@ export const AppbarContainer = styled(Box)(() => ({
     flexDirection: 'column',
     marginTop:4,
     justifyContent: 'center',
-    alignItems: 'center',
-    padding: '2px 8px'
+    alignItems: 'baseline',
+    padding: '2px 8px',
+    width: '100%'
+
 
  }));
 
 //header
-export const AppbarHeader = styled(Typography)(() => ({
+export const AppbarHeaderLower = styled(Box)(() => ({
   padding: '4px',
   flexGrow: 1,
     fontSize:'4em',
   fontFamily: "'Montez' ,'cursive'",
   color:Colors.secondary,
+
  }));
 
 export const MyList = styled(List)((type: any )=>({
@@ -30,4 +33,13 @@ export const MyList = styled(List)((type: any )=>({
     flexGrow:3,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%'
+
 }))
+
+export const AppbarHeader = styled(AppBar)(() => ({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+
+ } ));

@@ -1,7 +1,10 @@
 import * as React from "react";
 import {useMediaQuery, useTheme} from "@mui/material";
-import AppbarMobile from "./AppbarMobile";
-import AppbarDesktop from "./AppbarDesktop";
+import AppbarMobile from "./mobile/AppbarMobile";
+import AppbarDesktop from "./desktop/AppbarDesktop";
+
+//create context for the appbar
+
 
 const Appbar = () => {
 
