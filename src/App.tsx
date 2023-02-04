@@ -5,6 +5,7 @@ import theme from "./styles/theme";
 import Appbar from "./components/appbar";
 import {Provider} from "react-redux";
 import store from './redux/store.js';
+import SliderComponent from "./components/slider/SliderComponent";
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
             maxWidth={'xl'}
             sx={{
                 background: '#fff',
-                height: '100vh',
+
                fontColor: 'black'
 
             }}
@@ -35,7 +36,8 @@ function App() {
             searchBox
             appDrawer
     */}
-    <Button variant="contained" >Test</Button>
+
+            <SliderComponent/>
      </Container>
         </ThemeProvider>
         </Provider>
