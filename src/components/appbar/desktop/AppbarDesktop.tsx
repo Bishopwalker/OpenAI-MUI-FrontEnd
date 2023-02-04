@@ -21,7 +21,7 @@ const AppbarDesktop = ({matches}:Props) => {
             <MenuHeaderListUpper />
         <MenuHeaderList/>
             <AppbarHeaderLower>
-           Northern Neck Garbage Collection, LLC
+        NNGC
                 <Typography variant="h4" component="div" sx={{
                     paddingTop:'40px',
                     color:'#6b3434',
