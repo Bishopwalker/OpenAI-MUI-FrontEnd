@@ -28,7 +28,7 @@ const AppbarDesktop = ({matches}:Props) => {
                     fontFamily: 'Roboto',
 
                 }}>
-                   Let us take do the dirty work.....
+                   Let us do the dirty work.....
                 </Typography>
                 <Typography variant="h6" component="div" sx={{
                     paddingTop:'20px',
