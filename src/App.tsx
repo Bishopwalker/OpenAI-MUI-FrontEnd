@@ -3,7 +3,8 @@ import './App.css'
 import {Button, Container, ThemeProvider} from "@mui/material";
 import theme from "./styles/theme";
 import Appbar from "./components/appbar";
-
+import {Provider} from "react-redux";
+import store from './redux/store.js';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 
 //create a function that will selection an item from the array of items
     return (
+        <Provider store={store}>
         <ThemeProvider theme={theme}>
      <Container
             maxWidth={'xl'}
@@ -36,6 +38,7 @@ function App() {
     <Button variant="contained" >Test</Button>
      </Container>
         </ThemeProvider>
+        </Provider>
     )
 }
 export default App;

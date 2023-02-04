@@ -11,9 +11,10 @@ const MenuHeaderList = () => {
         <MyList sx={{
             paddingLeft: ' 0px',
             display: 'flex',
-            flexDirection: 'row',
+            flexDirection: {xs:`column`, sm:`column`, md:`row`, lg:`row`, xl:`row`},
             justifyContent: 'space-evenly',
             width: '100%',
+            height: {xs:'500px', sm:'500px', md:'100px', lg:'100px', xl:'100px'},
         }}>
             <ListItemButton>
                 <ListItemIcon>
