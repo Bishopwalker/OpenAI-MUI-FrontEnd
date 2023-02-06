@@ -13,7 +13,8 @@ export const AppbarContainer = styled(Box)(() => ({
     justifyContent: 'center',
     alignItems: 'baseline',
     padding: '2px 8px',
-    width: '100%'
+    width: '100%',
+
 
 
  }));

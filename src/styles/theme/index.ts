@@ -1,4 +1,5 @@
-import {createTheme} from "@mui/material";
+import {createTheme, CSSObject, SxProps, Theme} from "@mui/material";
+import shadows from "@mui/material/styles/shadows";
 
  interface Colors {
     primary: string;
@@ -19,6 +20,7 @@ import {createTheme} from "@mui/material";
     light_grey: string;
     white: string;
     black: string;
+
 }
  export const Colors: Colors = {
     primary: '#5f2c3e',
@@ -41,6 +43,7 @@ import {createTheme} from "@mui/material";
     black: '#000000',
 }
 const theme = createTheme({
+
     palette: {
         primary: {
             main: Colors.primary,
@@ -49,6 +52,19 @@ const theme = createTheme({
             main: Colors.secondary,
         }
     },
+    breakpoints: {
+           values: {
+                xs: 0,
+                sm: 600,
+                md: 960,
+                lg: 1280,
+                xl: 1920,
+           },
+        down: (breakpoint: any) => `@media (max-width:${breakpoint})`,
+        up: (breakpoint: any) => `@media (min-width:${breakpoint})`,
+
+    },
+
     components:{
         MuiButton:{
             defaultProps:{

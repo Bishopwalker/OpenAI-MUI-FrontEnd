@@ -6,6 +6,7 @@ import Appbar from "./components/appbar";
 import {Provider} from "react-redux";
 import store from './redux/store.js';
 import SliderComponent from "./components/slider/SliderComponent";
+import Banner from "./components/banner";
 
 function App() {
 
@@ -21,10 +22,11 @@ function App() {
             maxWidth={'xl'}
             sx={{
                 background: '#fff',
-
-               fontColor: 'black'
+               fontColor: 'black',
+                height: '100%',
 
             }}
+
      >
          <Appbar/>
     {/*     Appbar
@@ -38,6 +40,7 @@ function App() {
     */}
 
             <SliderComponent/>
+         <Banner/>
      </Container>
         </ThemeProvider>
         </Provider>
