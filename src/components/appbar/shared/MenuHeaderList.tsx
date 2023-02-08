@@ -15,12 +15,12 @@ const MenuHeaderList = () => {
 
     return (
         <MyList sx={{
-            paddingLeft: ' 0px',
+            paddingTop:{xs:'150px', sm:'150px', md:'0px', lg:'0px', xl:'0px'},
             display: 'flex',
             flexDirection: {xs:`column`, sm:`column`, md:`row`, lg:`row`, xl:`row`},
-            justifyContent: 'space-evenly',
+          //  justifyContent: {xs:'space-evenly', sm:'space-evenly', md:'space-evenly', lg:'space-evenly', xl:'space-evenly'},
             width: '100%',
-            height: {xs:'500px', sm:'500px', md:'100px', lg:'100px', xl:'100px'},
+            height: {xs:'300px', sm:'250px', md:'100px', lg:'100px', xl:'100px'},
         }}>
             <ListItemButton>
                 <ListItemIcon>

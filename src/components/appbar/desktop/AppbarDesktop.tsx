@@ -4,6 +4,7 @@ import {Grid, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import MenuHeaderList from "../shared/MenuHeaderList";
 import MenuHeaderListUpper from "../shared/MenuHeaderListUpper";
+import SliderPromotions from "../../promotions";
 const img='src/assets/garbage-truck.svg'
 
 type Props = {
@@ -31,7 +32,7 @@ const AppbarDesktop = ({matches}:Props) => {
 
                 }}>
 
-                   Let us do the dirty work.....
+                  <SliderPromotions/>
                 </Typography>
                 <Typography variant="h6" component="div" sx={{
                     paddingTop:'20px',
