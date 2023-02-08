@@ -1,9 +1,10 @@
 import * as React from "react";
 import {items} from "./AIOptions";
-import axios from "axios/index";
+import axios from "axios";
 import {Button} from "@mui/material";
 import Translation from "./Translation";
 import OptionSelection from "./OptionSelection";
+import {Link} from "react-router-dom";
 
 const AIHome = () => {
     type Options = typeof items[number]['option'];
@@ -53,6 +54,10 @@ const AIHome = () => {
 
     return (
         <div className='app-main' >
+            <Link to={'/'} >
+<Button variant={'contained'}>Home</Button>
+            </Link>
+
             <Button sx={
                 {
                     position:'sticky',

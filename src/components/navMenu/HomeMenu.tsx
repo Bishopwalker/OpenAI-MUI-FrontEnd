@@ -2,6 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import {Link} from 'react-router-dom'
 
 const HomeMenu = () => {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -32,7 +33,11 @@ const HomeMenu = () => {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>Learn about Residential Trash Pickup</MenuItem>
+                <MenuItem onClick={handleClose}>
+                <Link to={'/residential_t'} >
+                    Learn about Residential Trash Pickup
+                </Link>
+                </MenuItem>
                 <MenuItem onClick={handleClose}>Learn about Residential Dumpster Services</MenuItem>
                 <MenuItem onClick={handleClose}>Sign up for Services</MenuItem>
             </Menu>

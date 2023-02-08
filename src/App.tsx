@@ -9,6 +9,7 @@ import SliderComponent from "./components/slider/SliderComponent";
 import Banner from "./components/banner";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./site-pages/home";
+import AIHome from "./components/OpenAI_components/AIHome";
 
 function App() {
 
@@ -47,8 +48,10 @@ function App() {
          <Routes>
         <Route path='/' element={<Home/>}/>
          <Route path={'/signUp'} element={<Home/>}/>
+        <Route path={'/residential_t'} element={<AIHome/>}/>
          </Routes>
      </Container>
+
         </ThemeProvider>
             </BrowserRouter>
         </Provider>
