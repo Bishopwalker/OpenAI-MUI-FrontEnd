@@ -25,7 +25,7 @@ const images = ['src/assets/04_16ft_14k_gooseneck_dump.jpg',
     return (
         <div>
             <Slider {...settings}>
-            <ComplexButton image={'src/assets/04_16ft_14k_gooseneck_dump.jpg'}/>
+            {/*<ComplexButton image={'src/assets/04_16ft_14k_gooseneck_dump.jpg'}/>*/}
                <GridContent img={'src/assets/04_16ft_14k_gooseneck_dump.jpg'}/>
                <GridContent img={'src/assets/maxresdefault.jpg'}/>
 

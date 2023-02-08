@@ -12,14 +12,16 @@ export const BannerContainer   = styled(Box)((theme:typeof Theme)=>({
     padding:'0px, 0px',
 
 
+
 }))
 
  export const BannerContent = styled(Box)((theme: typeof Theme)=>({
     display:'flex',
     flexDirection:'column',
     justifyContent:'center',
-     maxWidth:420,
-     padding:'30px'
+     width:'75%',
+     maxWidth:'75%',
+     padding:'20px'
  }));
  export const ImageButton = styled(ButtonBase)(({ theme }) => ({
      position: 'relative',
