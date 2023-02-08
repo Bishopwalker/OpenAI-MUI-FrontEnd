@@ -52,18 +52,7 @@ const theme = createTheme({
             main: Colors.secondary,
         }
     },
-    breakpoints: {
-           values: {
-                xs: 0,
-                sm: 600,
-                md: 960,
-                lg: 1280,
-                xl: 1920,
-           },
-        down: (breakpoint: any) => `@media (max-width:${breakpoint})`,
-        up: (breakpoint: any) => `@media (min-width:${breakpoint})`,
 
-    },
 
     components:{
         MuiButton:{

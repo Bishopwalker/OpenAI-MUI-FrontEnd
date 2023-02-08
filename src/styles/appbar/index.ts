@@ -40,7 +40,7 @@ export const MyList = styled(List)((type: any )=>({
 
 export const AppbarHeader = styled(AppBar)(() => ({
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+  flexDirection:  'row',
+ //justifyContent: 'flex-end',
 
  } ));

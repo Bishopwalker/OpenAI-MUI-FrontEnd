@@ -20,21 +20,21 @@ const screen = useSelector(screenType)
             {/*}}>*/}
             {/*    NN*/}
             {/*</Typography>*/}
-            {/*<Typography variant="h3" component='span' sx={{*/}
-            {/*    color: '#49916b',*/}
-            {/*    paddingTop: {xs: '30px',sm:'20px', md: '0px', lg: '0px', xl: '0px', },*/}
-            {/*}}>*/}
-            {/*    GC*/}
-            {/*</Typography>*/}
-<img src={'src/assets/logo1.png'} style={{
+            <Typography variant="caption" component='span' sx={{
+                color: '#49916b',
+                paddingTop: {xs: '30px',sm:'20px', md: '0px', lg: '0px', xl: '0px', },
+            }}>
+
+            </Typography>
+<img src={'src/assets/NNGC.LOGO.NW.svg'} style={{
     width: '150px',
-    height: '50px',
+    height: '75px',
 }}/>
             <MyList sx={{
                 // marginLeft: {xs:'00px',s:'00px',sm:'00px', md: '00px', lg: '200px', xl: '250px',},
                 display: 'flex',
                 paddingTop: {xs: '20px',sm:'20px', md: '0px', lg: '0px', xl: '0px', },
-                flexDirection:  { xs:'column',s:'column',sm:'column', md: 'row', lg: 'row', xl: 'column',},
+                flexDirection:  { xs:'column',s:'column',sm:'column', md: 'row', lg: 'row', xl: 'row',},
                 justifyContent: 'space-evenly',
                 width: '100%',
                 listStyle: 'none',
@@ -51,6 +51,10 @@ const screen = useSelector(screenType)
                     <ListItemText primary="Get Support"/>
                 </ListItemButton>
             </MyList>
+             <img src={'src/assets/NNGC.LOGO.NW.svg'} style={{
+                 width: '150px',
+                 height: '75px',
+             }}/>
         </AppbarHeader>
 
     )

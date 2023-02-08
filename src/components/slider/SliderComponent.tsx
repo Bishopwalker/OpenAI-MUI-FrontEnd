@@ -18,6 +18,7 @@ const SliderComponent = () => {
         autoplay: true,
         autoplaySpeed: 10000,
 
+
     }
 const images = ['src/assets/04_16ft_14k_gooseneck_dump.jpg',
     'src/assets/maxresdefault.jpg', 'src/assets/NewGooseneckProPactor-500x206.png',

@@ -1,6 +1,6 @@
 import * as React from "react";
 import {AppbarContainer, AppbarHeaderLower, MyList} from "../../../styles/appbar";
-import {ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {Grid, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import MenuHeaderList from "../shared/MenuHeaderList";
 import MenuHeaderListUpper from "../shared/MenuHeaderListUpper";
@@ -21,21 +21,24 @@ const AppbarDesktop = ({matches}:Props) => {
             <MenuHeaderListUpper />
         <MenuHeaderList/>
             <AppbarHeaderLower>
-        NNGC
-                <Typography variant="h4" component="div" sx={{
+
+
+
+                <Typography variant="h4" component="span" sx={{
                     paddingTop:'40px',
                     color:'#6b3434',
                     fontFamily: 'Roboto',
 
                 }}>
+
                    Let us do the dirty work.....
                 </Typography>
                 <Typography variant="h6" component="div" sx={{
                     paddingTop:'20px',
                     fontFamily: 'Roboto',
                 }}  >
-                    You do "Literally" anything else
                 </Typography>
+
             </AppbarHeaderLower>
 
 
