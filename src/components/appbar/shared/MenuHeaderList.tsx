@@ -2,10 +2,16 @@ import * as React from "react";
 import {AppbarContainer, AppbarHeaderLower, MyList} from "../../../styles/appbar";
 import {ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import HomeMenu from "../../navMenu/HomeMenu";
+import BusinessMenu from "../../navMenu/BusinessMenu";
+import ServicesMenu from "../../navMenu/ServicesMenu";
+
+
 const img='src/assets/garbage-truck.svg'
 
 
 const MenuHeaderList = () => {
+
 
     return (
         <MyList sx={{
@@ -21,21 +27,21 @@ const MenuHeaderList = () => {
                     <img width={'50px'} alt={'Garbage Truck Home Button'} src={img}
                     />
                 </ListItemIcon>
-                <ListItemText primary="For Home"/>
+               <HomeMenu/>
             </ListItemButton>
             <ListItemButton>
                 <ListItemIcon>
                     <img width={'50px'} alt={'Garbage Truck Services Button'} src={img}
                     />
                 </ListItemIcon>
-                <ListItemText primary="For Business"/>
+                <BusinessMenu/>
             </ListItemButton>
             <ListItemButton>
                 <ListItemIcon>
                     <img width={'50px'}  alt={'Garbage Truck Promotions Button'}src={img}
                     />
                 </ListItemIcon>
-                <ListItemText primary="Services"/>
+                <ServicesMenu/>
             </ListItemButton>
             <ListItemButton>
                 <ListItemIcon>
@@ -51,6 +57,6 @@ const MenuHeaderList = () => {
                 </ListItemIcon>
             </ListItemButton>
             {/*<Actions/>*/}
-        </MyList>    )
+        </MyList>)
 }
 export default MenuHeaderList

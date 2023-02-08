@@ -7,6 +7,8 @@ import {Provider} from "react-redux";
 import store from './redux/store.js';
 import SliderComponent from "./components/slider/SliderComponent";
 import Banner from "./components/banner";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Home from "./site-pages/home";
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
 //create a function that will selection an item from the array of items
     return (
         <Provider store={store}>
+            <BrowserRouter>
         <ThemeProvider theme={theme}>
      <Container
             maxWidth={'xl'}
@@ -29,7 +32,8 @@ function App() {
             }}
 
      >
-         <Appbar/>
+
+
     {/*     Appbar
             Banner
             Promotions
@@ -39,11 +43,14 @@ function App() {
             searchBox
             appDrawer
     */}
-
-            <SliderComponent/>
-         <Banner/>
+         {/*<Home/>*/}
+         <Routes>
+        <Route path='/' element={<Home/>}/>
+         <Route path={'/signUp'} element={<Home/>}/>
+         </Routes>
      </Container>
         </ThemeProvider>
+            </BrowserRouter>
         </Provider>
     )
 }
