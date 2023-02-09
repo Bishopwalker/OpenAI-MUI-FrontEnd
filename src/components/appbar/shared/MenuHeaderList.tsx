@@ -15,7 +15,7 @@ const MenuHeaderList = () => {
 
     return (
         <MyList sx={{
-            paddingTop:{xs:'150px', sm:'150px', md:'0px', lg:'0px', xl:'0px'},
+            paddingTop:{xs:'175px', sm:'150px', md:'0px', lg:'0px', xl:'0px'},
             display: 'flex',
             flexDirection: {xs:`column`, sm:`column`, md:`row`, lg:`row`, xl:`row`},
           //  justifyContent: {xs:'space-evenly', sm:'space-evenly', md:'space-evenly', lg:'space-evenly', xl:'space-evenly'},

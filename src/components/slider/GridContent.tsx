@@ -10,7 +10,7 @@ type GridContentProps = {
 function GridContent({img}: GridContentProps) {
     return(
         <Grid container spacing={5} justifyContent={'center'} >
-            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+            <Grid item xs={20} sm={12} md={12} lg={12} xl={12} >
                      <ImageButton
                         focusRipple
                         style={{
@@ -29,7 +29,7 @@ function GridContent({img}: GridContentProps) {
                                     color:'#49ec16',
                                     fontWeight: 'bold',
                                     fontFamily: 'Roboto',
-                                    fontSize: '3rem',
+                                    fontSize: {xs:'1.25rem', sm:'1.25rem', md:'2rem', lg:'3rem', xl:'3rem'},
                                     position: 'relative',
                                     p: 4,
                                     pt: 2,

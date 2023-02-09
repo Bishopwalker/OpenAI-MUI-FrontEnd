@@ -47,7 +47,9 @@ const SliderPromotions = () => {
            alignItems={'center'} >
                <Button focusRipple={true} variant={"text"}>
                { /* @ts-ignore*/}
-               <PromotionsContent>
+               <PromotionsContent sx={{
+                   fontSize: {xs:'1.0rem', sm:'1.5rem', md:'1.75rem', lg:'1.75rem'},
+               }}>
                {messages[messageIndex]}
                 </PromotionsContent>
                </Button>

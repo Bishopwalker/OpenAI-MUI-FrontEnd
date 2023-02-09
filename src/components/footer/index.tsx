@@ -3,7 +3,9 @@ import {FooterContainer, FooterTitle} from "../../styles/footer";
 import Box from "@mui/material/Box";
 import {Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
-
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
 const Footer = () => {
 
     return (
@@ -40,13 +42,19 @@ const Footer = () => {
                             Monday - Friday: 7:00 AM - 5:00 PM
                         </Typography>
                 </Grid>
+                <Grid item md={6} lg={4} >
+                    <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                    <FacebookIcon sx={{mr:1}}/>
+                        <TwitterIcon sx={{mr:1}}/>
+                        <InstagramIcon sx={{mr:1}}/>
+                    </Box>
                 </Grid>
-            <Typography variant={'subtitle2'} sx={{
+            </Grid>
+            <Typography variant={'h6'} sx={{
                 pt:2,
-                position: 'relative',
-                bottom: {xs:'-40px', sm:'-10px', md:'-70px', lg:'-70px', xl:'-70'},
+
             }}>
-                © 2021 Northern Neck Garbage. All rights reserved.
+                © 2021 Northern Neck Garbage Collection, LLC.
             </Typography>
         </FooterContainer>
     )
