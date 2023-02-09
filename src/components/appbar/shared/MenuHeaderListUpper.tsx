@@ -48,7 +48,7 @@ const screen = useSelector(screenType)
                     <ListItemText primary="Pay My Bill"/>
                 </ListItemButton>
                 <ListItemButton>
-                    <ListItemText primary="Get Support"/>
+                    <ListItemText primary="Support Northern Neck Christian School"/>
                 </ListItemButton>
             </MyList>
              <img src={'src/assets/NNGC.LOGO.NW.svg'} style={{

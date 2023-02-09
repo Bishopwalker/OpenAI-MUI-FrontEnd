@@ -22,7 +22,8 @@ export const BannerContainer   = styled(Box)((theme:typeof Theme)=>({
     justifyContent:'center',
      width:'75%',
      maxWidth:'75%',
-     padding:'20px'
+     padding:'20px',
+
  }));
  export const ImageButton = styled(ButtonBase)(({ theme }) => ({
      position: 'relative',

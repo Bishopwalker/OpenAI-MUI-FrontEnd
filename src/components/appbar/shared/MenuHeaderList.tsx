@@ -48,7 +48,7 @@ const MenuHeaderList = () => {
                     <img width={'50px'} alt={'Garbage Truck Contact Us Button'} src={img}
                     />
                 </ListItemIcon>
-                <ListItemText primary="Contact Us"/>
+                <ListItemText primary="Our Story"/>
             </ListItemButton>
             <ListItemButton>
                 <ListItemIcon>

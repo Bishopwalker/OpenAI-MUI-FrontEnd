@@ -12,6 +12,7 @@ export const PromotionsContainer = styled(Box)((theme:typeof Theme)=>({
     overflow: 'hidden',
     width: '75vw',
     color: Colors.white,
+
 }))
 
 export const PromotionsContent = styled(Box)((theme:typeof Theme)=>({
@@ -21,4 +22,6 @@ export const PromotionsContent = styled(Box)((theme:typeof Theme)=>({
     fontSize: '2.5rem',
      padding: '10px',
     borderRadius: '20px',
+    width: '100%',
+
 } ))
