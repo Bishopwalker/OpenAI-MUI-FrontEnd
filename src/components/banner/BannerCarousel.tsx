@@ -91,7 +91,7 @@ const BannerCarousel = () => {
 
                 <Card sx={{ maxWidth: 400,height:400 }}>
                     <CardMedia
-                        sx={{ height: 150, width: 275 }}
+                        sx={{ height: 150, width: 275, margin: 'auto' }}
                         image={image.scr}
                         title={image.name}
                     />

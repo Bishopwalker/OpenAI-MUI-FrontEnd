@@ -10,6 +10,7 @@ import Banner from "./components/banner";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./site-pages/home";
 import AIHome from "./components/OpenAI_components/AIHome";
+import Footer from "./components/footer";
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
          <Route path={'/signUp'} element={<Home/>}/>
         <Route path={'/residential_t'} element={<AIHome/>}/>
          </Routes>
+         <Footer/>
      </Container>
 
         </ThemeProvider>

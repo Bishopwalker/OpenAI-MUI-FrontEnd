@@ -10,7 +10,6 @@ export const PromotionsContainer = styled(Box)((theme:typeof Theme)=>({
     alignItems: 'center',
     padding: '20px 0px 20px 0px',
     overflow: 'hidden',
-
     width: '75vw',
     color: Colors.white,
 }))
