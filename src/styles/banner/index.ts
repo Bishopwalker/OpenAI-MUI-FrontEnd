@@ -7,6 +7,7 @@
 export const BannerContainer   = styled(Box)((theme:typeof Theme)=>({
     display:'flex',
     justifyContent:'center',
+    alignItems:'center',
     width:'100%',
     height:'100%',
     padding:'0px, 0px',

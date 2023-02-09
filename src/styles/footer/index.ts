@@ -14,5 +14,5 @@ height: '300px',
 
 export const FooterTitle=styled(Typography)(() => ({
     textTransform: 'uppercase',
-    marginBotton: '1rem',
+    marginBottom: '1rem',
 } ))

@@ -1,9 +1,11 @@
 import * as React from 'react';
 // @ts-ignore
 import Slider from 'react-slick'
-import {Button, Card, CardActions, CardContent, CardHeader, CardMedia} from "@mui/material";
+import {Button, ButtonGroup, Card, CardActions, CardContent, CardHeader, CardMedia} from "@mui/material";
 import Typography from "@mui/material/Typography";
-
+import UndoIcon from '@mui/icons-material/Undo';
+import RedoIcon from '@mui/icons-material/Redo';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 // import 'slick-carousel/slick/slick.css'
 // import 'slick-carousel/slick/slick-theme.css'
 
@@ -82,10 +84,16 @@ const BannerCarousel = () => {
     return (
         <div className='content'>
             <div className='controls'>
+                <ButtonGroup sx={{
+                    display: 'flex',
+                    width: '100%',
+                    justifyContent: 'space-between',
+                }} variant="text"  aria-label="text button group">
                 { /* @ts-ignore*/}
-            <button onClick={() => sliderRef?.slickPrev()}> Previous </button>
+            <Typography variant={'text'} component={'button'} onClick={() => sliderRef?.slickPrev()}> {'<'}-----  </Typography>
                 { /* @ts-ignore*/}
-            <button onClick={() => sliderRef?.slickNext()}> Next  </button>
+                <Typography variant={'text'} component={'button'} onClick={() => sliderRef?.slickPrev()}>  ----{'>'} </Typography>
+                </ButtonGroup>
         <Slider ref={setSliderRef} {...settings}>
             {images.map((image, index) => (
 
