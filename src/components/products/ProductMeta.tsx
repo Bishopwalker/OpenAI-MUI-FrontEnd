@@ -11,13 +11,13 @@ const ProductMeta = ({product,matches}:Props) => {
 
     return (
         <ProductMetaWrapper>
-            <Typography variant={matches? "h6" : "h5"} lineHeight={2}>
-                {product.name}
+            <Typography variant={matches? "subtitle2" : "subtitle1"} lineHeight={1.5}>
+
             </Typography>
-            <Typography variant={matches? "h4" : "h3"} lineHeight={2}>
+            <Typography variant={matches? "h4" : "h3"} lineHeight={1}>
                 ${product.price as React.ReactNode}
             </Typography>
-            <Typography variant={matches? "subtitle2" : "subtitle1"} lineHeight={2}>
+            <Typography variant={matches? "subtitle2" : "subtitle1"} lineHeight={1.5}>
                 {product.description}
             </Typography>
         </ProductMetaWrapper>

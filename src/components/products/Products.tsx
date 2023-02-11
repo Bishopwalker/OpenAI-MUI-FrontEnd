@@ -24,7 +24,7 @@ const Products = () => {
                 {renderProducts}
             </Grid>
 
-            <h1>Products</h1>
+
         </Container>
     )
 }

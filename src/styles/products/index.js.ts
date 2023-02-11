@@ -8,21 +8,27 @@ export const Product = styled(Box)(({theme}) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    width: 'auto',
+    height: 'auto',
+    margin: 'auto',
     [theme.breakpoints.up('md')]: {
         position: 'relative',
+        width: '30vw',
     }
 } as const))
 
 export const ProductImage = styled('img')(({src,theme}) => ({
     src:`${src}`,
     width: '100%',
-    background: Colors.light_grey,
-    padding: theme.spacing(2),
-    //padding: '10px',
+    background: '#dadada',
+    height: '325px',
+
+  //  padding: theme.spacing(2),
+   padding: '10px',
     [theme.breakpoints.up('md')]: {
         width:'80%',
-        padding: theme.spacing(4),
-        //padding: '24px'
+        //padding: theme.spacing(4),
+      padding: '24px'
 
     }
 } as const))
