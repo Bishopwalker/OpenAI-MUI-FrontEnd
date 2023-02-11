@@ -26,7 +26,7 @@ const screen = useSelector(screenType)
             }}>
 
             </Typography>
-<img src={'src/assets/NNGC.LOGO.NW.svg'} style={{
+<img src={'/images/NNGC.LOGO.NW.svg'} style={{
     width: '150px',
     height: '75px',
 }}/>
@@ -51,7 +51,7 @@ const screen = useSelector(screenType)
                     <ListItemText primary="Support Northern Neck Christian School"/>
                 </ListItemButton>
             </MyList>
-             <img src={'src/assets/NNGC.LOGO.NW.svg'} style={{
+             <img src={'/images/NNGC.LOGO.NW.svg'} style={{
                  width: '150px',
                  height: '75px',
              }}/>

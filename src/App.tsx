@@ -11,6 +11,9 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./site-pages/home";
 import AIHome from "./components/OpenAI_components/AIHome";
 import Footer from "./components/footer";
+import Business from "./site-pages/business";
+import Services from "./site-pages/services";
+import Residential from "./site-pages/home/Residential";
 
 function App() {
 
@@ -34,7 +37,7 @@ function App() {
             }}
 
      >
-
+         <Appbar/>
 
     {/*     Appbar
             Banner
@@ -48,8 +51,9 @@ function App() {
          {/*<Home/>*/}
          <Routes>
         <Route path='/' element={<Home/>}/>
-         <Route path={'/signUp'} element={<Home/>}/>
-        <Route path={'/residential_t'} element={<AIHome/>}/>
+         <Route path={'/business'} element={<Business/>}/>
+        <Route path={'/residential_t'} element={<Residential/>}/>
+             <Route path={'/services'} element={<Services/>} />
          </Routes>
          <Footer/>
      </Container>

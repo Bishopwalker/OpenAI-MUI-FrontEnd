@@ -9,7 +9,8 @@ type GridContentProps = {
 }
 function GridContent({img}: GridContentProps) {
     return(
-        <Grid container spacing={5} justifyContent={'center'} >
+        <Grid container spacing={5} justifyContent={'center'} sx={{
+        }} >
             <Grid item xs={20} sm={12} md={12} lg={12} xl={12} >
                      <ImageButton
                         focusRipple

@@ -12,38 +12,38 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 const images =[
     {
     name:'Residential Trash Pickup',
-    scr:'src/assets/trashcanBig.jpg',
+    scr:'/images/trashcanBig.jpg',
     alt:'trashcan',
     description:'We offer residential trash pickup for your home. We have a variety of trash cans to choose from.'
 
 },
     {
         name:'Commercial Trash Pickup',
-        scr:'src/assets/Commercial-dumpster-rental.jpg',
+        scr:'/images/Commercial-dumpster-rental.jpg',
         alt:'commercial trashcan',
         description:'We offer commercial trash pickup for your business. We have a variety of trash cans to choose from.'
     },
     {
         name:'Recycling Pickup',
-        scr:'src/assets/recycling.jpg',
+        scr:'/images/recycling.jpg',
         alt:'recycle',
         description:'We offer recycling pickup for your home or business. We have a variety of trash cans to choose from.'
     },
     {
         name:'Yard Waste Pickup',
-        scr:'src/assets/greyBigTrashcan.jpg',
+        scr:'/images/greyBigTrashcan.jpg',
         alt:'yard waste',
         description:'We offer yard waste pickup for your home or business. We have a variety of trash cans to choose from.'
     },
     {
         name:'Roll Off Dumpster Rental',
-        src:'src/assets/rollOff.jpg',
+        scr:'/images/rollOff.jpg',
         alt:'roll off dumpster',
         description:'We offer roll off dumpster rental for your home or business. We have a variety of trash cans to choose from.'
     },
     {
         name:'Construction/Commercial Dumpster Rental',
-        src:'src/assets/yellowRollOFf.jpg',
+        scr:'/images/yellowRollOFf.jpg',
         alt:'construction dumpster',
         description:'We offer construction/commercial dumpster rental for your home or business. We have a variety of trash cans to choose from.'
 

@@ -16,7 +16,7 @@ export const PromotionsContainer = styled(Box)((theme:typeof Theme)=>({
 }))
 
 export const PromotionsContent = styled(Box)((theme:typeof Theme)=>({
-    fontFamily: 'Montez, cursive',
+    fontFamily: 'Roboto',
     backgroundColor: '#f6bb21',
     Color: Colors.white,
     fontSize: '2.5rem',
