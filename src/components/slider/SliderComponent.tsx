@@ -16,7 +16,7 @@ const SliderComponent = () => {
         slidesToScroll: 1,
         randomize: true,
         autoplay: true,
-        autoplaySpeed: 10000,
+        autoplaySpeed: 50000,
 
 
     }

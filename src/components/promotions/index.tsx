@@ -15,9 +15,7 @@ const messages = [
     `Let's make Northumberland a better place for our children!`,
     `NNGC supports the environment and our community!`,
 ]
-type Messages = {
-    messages: string[];
-}
+
 const SliderPromotions = () => {
 //const number = Math.floor(Math.random() * messages.length)
     const containerRef = React.useRef<HTMLDivElement>(null);
@@ -32,7 +30,7 @@ const SliderPromotions = () => {
                 setMessageIndex(i=>(i+1)%messages.length)
                 setShow(true)
           }, 1000)
-        },4000)
+        },40000)
         return () => clearInterval(interval)
     }, [ ])
 
