@@ -14,6 +14,10 @@ import Footer from "./components/footer";
 import Business from "./site-pages/business";
 import Services from "./site-pages/services";
 import Residential from "./site-pages/home/Residential";
+import Dumpster from "./site-pages/dumpster";
+import Recycling from "./site-pages/recycling";
+import YardWaste from "./site-pages/yard-waste";
+import Construction from "./site-pages/construction";
 
 function App() {
 
@@ -54,6 +58,10 @@ function App() {
          <Route path={'/business'} element={<Business/>}/>
         <Route path={'/residential_t'} element={<Residential/>}/>
              <Route path={'/services'} element={<Services/>} />
+                <Route path={'/dumpster'} element={<Dumpster/>} />
+             <Route path={'/recycling'} element={<Recycling/>} />
+             <Route path={'/yardwaste'} element={<YardWaste/>} />
+             <Route path={'/construction/*'} element={<Construction/>} />
          </Routes>
          <Footer/>
      </Container>

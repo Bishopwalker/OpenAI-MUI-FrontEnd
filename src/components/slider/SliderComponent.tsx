@@ -6,6 +6,7 @@ import {Button, Card, CardContent, CardMedia, Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import GridContent from "./GridContent";
 import ComplexButton from "./ComplexButton";
+import {Link} from "react-router-dom";
 
 const SliderComponent = () => {
     const settings = {
@@ -25,7 +26,7 @@ const SliderComponent = () => {
         <div>
             <Slider {...settings}>
             {/*<ComplexButton image={'/images/04_16ft_14k_gooseneck_dump.jpg'}/>*/}
-               <GridContent img={'/images/04_16ft_14k_gooseneck_dump.jpg'}/>
+              <Link to={'/'}> <GridContent img={'/images/04_16ft_14k_gooseneck_dump.jpg'}/></Link>
                <GridContent img={'/images/maxresdefault.jpg'}/>
 
                 <GridContent img={'/images/NewGooseneckProPactor-500x206.png'}/>

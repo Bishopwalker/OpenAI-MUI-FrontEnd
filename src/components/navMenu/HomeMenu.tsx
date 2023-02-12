@@ -38,8 +38,16 @@ const HomeMenu = () => {
                     Learn about Residential Trash Pickup
                 </Link>
                 </MenuItem>
-                <MenuItem onClick={handleClose}>Learn about Residential Dumpster Services</MenuItem>
-                <MenuItem onClick={handleClose}>Sign up for Services</MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link to={'/dumpster'}>
+                    Learn about Residential Dumpster Services
+                    </Link>
+                    </MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link to={'/yardwaste'}>
+                    Sign up for Yard Cleanup Services
+                    </Link>
+                    </MenuItem>
             </Menu>
         </div>
     )
