@@ -15,7 +15,7 @@ const ProductMeta = ({product,matches}:Props) => {
 
             </Typography>
             <Typography variant={matches? "h4" : "h3"} lineHeight={1}>
-                ${product.price as React.ReactNode}
+                {product.price as any}
             </Typography>
             <Typography variant={matches? "subtitle2" : "subtitle1"} lineHeight={1.5}>
                 {product.description}

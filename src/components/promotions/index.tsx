@@ -2,13 +2,18 @@ import * as React from "react";
 import {PromotionsContainer, PromotionsContent} from "../../styles/promotions";
 import Box from "@mui/material/Box";
 import {Button, Slide} from "@mui/material";
+import {Link} from "react-router-dom";
 
 const messages = [
     'Let us do the dirty work.....',
     'Do anything BUT, take out the trash!',
-    `Love Children? Love the Environment? Hate trash?? Come join us!`,
-    `Let's goo Brandon!!!!`,
-    `Let Life Live!!`
+    `Love Children, Love the Environment and Hate trash?? Come join us!`,
+    `NNGC is a proud supporter of Northern Neck Christian School`,
+    `Protect the environment, Protect Northumberland! Join Today`,
+    `Convenient secure billing! Pay online or by mail!`,
+    `We are Northumberland's #1 choice for trash removal!`,
+    `Let's make Northumberland a better place for our children!`,
+    `NNGC supports the environment and our community!`,
 ]
 type Messages = {
     messages: string[];
@@ -34,6 +39,7 @@ const SliderPromotions = () => {
     return (
     // @ts-ignore
         <PromotionsContainer  ref={containerRef}>
+           <Link to={'/'}>
             <Slide
                container={containerRef.current}
                 direction={show ? 'left' : 'right'}
@@ -55,6 +61,7 @@ const SliderPromotions = () => {
                </Button>
            </Box>
             </Slide>
+           </Link>
         </PromotionsContainer>
     )
 }
