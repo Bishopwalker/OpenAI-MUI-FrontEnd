@@ -8,7 +8,7 @@ import store from './redux/store.js';
 import SliderComponent from "./components/slider/SliderComponent";
 import Banner from "./components/banner";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Home from "./site-pages/home";
+import Home from "./site-pages/landing";
 import AIHome from "./components/OpenAI_components/AIHome";
 import Footer from "./components/footer";
 import Business from "./site-pages/business";
@@ -18,6 +18,11 @@ import Dumpster from "./site-pages/dumpster";
 import Recycling from "./site-pages/recycling";
 import YardWaste from "./site-pages/yard-waste";
 import Construction from "./site-pages/construction";
+import AppointmentPickerEl from "./components/appointment";
+import Landing from "./site-pages/landing";
+import Bill from "./site-pages/bill";
+// @ts-ignore
+import ClassAppointments from "./components/appointment/ClassAppointments.jsx";
 
 function App() {
 
@@ -54,14 +59,17 @@ function App() {
     */}
          {/*<Home/>*/}
          <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path={'/'} element={<Landing/>}/>
          <Route path={'/business'} element={<Business/>}/>
         <Route path={'/residential_t'} element={<Residential/>}/>
              <Route path={'/services'} element={<Services/>} />
                 <Route path={'/dumpster'} element={<Dumpster/>} />
              <Route path={'/recycling'} element={<Recycling/>} />
              <Route path={'/yardwaste'} element={<YardWaste/>} />
-             <Route path={'/construction/*'} element={<Construction/>} />
+             <Route path={'/construction/*'} element={<Construction/>}/>
+             <Route path={'/donations'} element={<AppointmentPickerEl/>}/>
+                <Route path={'/appointments'} element={<ClassAppointments/>}/>
+             <Route path={'/bill'} element={<Bill/>}/>
          </Routes>
          <Footer/>
      </Container>

@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ProductType} from "./data";
-import {ProductMetaWrapper} from "../../styles/products/index.js";
+import {ProductMetaWrapper} from "../../styles/products";
 import Typography from "@mui/material/Typography";
 
 type Props = {

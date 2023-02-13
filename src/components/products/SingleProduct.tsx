@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ProductType} from "./data";
-import {Product, ProductImage} from "../../styles/products/index.js";
+import {Product, ProductImage} from "../../styles/products";
 import ProductMeta from "./ProductMeta";
 import Typography from "@mui/material/Typography";
 

@@ -3,7 +3,7 @@ import Appbar from "../../components/appbar";
 import SliderComponent from "../../components/slider/SliderComponent";
 import Banner from "../../components/banner";
 
-const Home = () => {
+const Landing = () => {
 
     return (
         <div>
@@ -14,4 +14,4 @@ const Home = () => {
         </div>
     )
 }
-export default Home
+export default Landing

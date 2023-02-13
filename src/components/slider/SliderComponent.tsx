@@ -27,11 +27,11 @@ const SliderComponent = () => {
             <Slider {...settings}>
             {/*<ComplexButton image={'/images/04_16ft_14k_gooseneck_dump.jpg'}/>*/}
               <Link to={'/'}> <GridContent img={'/images/04_16ft_14k_gooseneck_dump.jpg'}/></Link>
-               <GridContent img={'/images/maxresdefault.jpg'}/>
+                <Link to={'/'}>  <GridContent img={'/images/maxresdefault.jpg'}/> </Link>
 
-                <GridContent img={'/images/NewGooseneckProPactor-500x206.png'}/>
-                <GridContent img={'/images/bttw.jpg'}/>
-                <GridContent img={'/images/ProPactor_NEW19-1024x471.png'}/>
+                    <Link to={'/'}> <GridContent img={'/images/NewGooseneckProPactor-500x206.png'}/></Link>
+                        <Link to={'/'}>  <GridContent img={'/images/bttw.jpg'}/> </Link>
+                            <Link to={'/'}><GridContent img={'/images/ProPactor_NEW19-1024x471.png'}/> </Link>
 
             </Slider>
         </div>

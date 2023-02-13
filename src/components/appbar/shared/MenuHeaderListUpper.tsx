@@ -5,6 +5,7 @@ import {ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import store from "../../../redux/store";
 import {useSelector} from "react-redux";
  import {RootState} from "../../../redux/types";
+import {Link} from "react-router-dom";
 
 const screenType = (state: RootState) => state.screenType
 const MenuHeaderListUpper = ()=>{
@@ -42,13 +43,18 @@ const screen = useSelector(screenType)
 
             }}>
                 <ListItemButton>
-                    <ListItemText primary="View Schedule"/>
+                 <Link to={'/appointments'} >   <ListItemText primary="View Schedule"/>
+                 </Link>
                 </ListItemButton>
                 <ListItemButton>
+                  <Link to={'/bill'}>
                     <ListItemText primary="Pay My Bill"/>
+                  </Link>
                 </ListItemButton>
                 <ListItemButton>
+                    <Link to={'/donations'}>
                     <ListItemText primary="Support Northern Neck Christian School"/>
+                    </Link>
                 </ListItemButton>
             </MyList>
              <img src={'/images/NNGC.LOGO.NW.svg'} style={{

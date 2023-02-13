@@ -22,7 +22,6 @@ export const ProductImage = styled('img')(({src,theme}) => ({
     width: '100%',
     background: '#dadada',
     height: '325px',
-
   //  padding: theme.spacing(2),
    padding: '10px',
     [theme.breakpoints.up('md')]: {

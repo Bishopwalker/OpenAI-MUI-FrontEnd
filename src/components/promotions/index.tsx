@@ -18,16 +18,20 @@ const messages = [
 
 const SliderPromotions = () => {
 //const number = Math.floor(Math.random() * messages.length)
+    const number = Math.floor(Math.random() * messages.length)
     const containerRef = React.useRef<HTMLDivElement>(null);
 
-    const [messageIndex, setMessageIndex] = React.useState(0);
+    const [messageIndex, setMessageIndex] = React.useState(number);
     const [show, setShow] = React.useState(true);
+//Create a math.random function to randomly select a message from the array
 
+
+console.log(number,'number')
     React.useEffect(() => {
         const interval = setInterval(() => {
        setShow(false);
           setTimeout(() => {
-                setMessageIndex(i=>(i+1)%messages.length)
+                setMessageIndex(number)
                 setShow(true)
           }, 1000)
         },40000)

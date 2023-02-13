@@ -14,7 +14,8 @@ const buttonMessages=[
     `Sign up for Trash Pick Up,`,
 ]
 function GridContent({img}: GridContentProps) {
-    const [messageIndex, setMessageIndex] = React.useState(0)
+    const number = Math.floor(Math.random() * buttonMessages.length)
+    const [messageIndex, setMessageIndex] = React.useState(number)
 
 React.useEffect(() => {
         const interval = setInterval(() => {
