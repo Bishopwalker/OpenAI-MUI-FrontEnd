@@ -6,21 +6,15 @@ import store from "../../../redux/store";
 import {useSelector} from "react-redux";
  import {RootState} from "../../../redux/types";
 import {Link} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../../redux/hooks/hooks";
+import {changeTitle} from "../../../redux/pageTitleSlice";
 
-const screenType = (state: RootState) => state.screenType
+
 const MenuHeaderListUpper = ()=>{
-
-const screen = useSelector(screenType)
-
 
     return (
          <AppbarHeader>
-            {/*<Typography variant="h3" component='span' sx={{*/}
-            {/*    color: '#d9bb33',*/}
-            {/*    paddingTop: {xs: '30px',sm:'20px', md: '0px', lg: '0px', xl: '0px', },*/}
-            {/*}}>*/}
-            {/*    NN*/}
-            {/*</Typography>*/}
+
             <Typography variant="caption" component='span' sx={{
                 color: '#49916b',
                 paddingTop: {xs: '30px',sm:'20px', md: '0px', lg: '0px', xl: '0px', },
@@ -47,8 +41,8 @@ const screen = useSelector(screenType)
                  </Link>
                 </ListItemButton>
                 <ListItemButton>
-                  <Link to={'/bill'}>
-                    <ListItemText primary="Pay My Bill"/>
+                  <Link to={'/signup'}>
+                    <ListItemText primary="My Account"/>
                   </Link>
                 </ListItemButton>
                 <ListItemButton>

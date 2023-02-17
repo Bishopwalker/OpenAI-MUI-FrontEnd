@@ -23,60 +23,72 @@ import Landing from "./site-pages/landing";
 import Bill from "./site-pages/bill";
 // @ts-ignore
 import ClassAppointments from "./components/appointment/ClassAppointments.jsx";
+import Login from "./site-pages/login/Login";
+import Signup from "./site-pages/login/Signup";
+import {useAppSelector} from "./redux/hooks/hooks";
+import {useLocation} from "react-router-dom";
 
 function App() {
-
+    const screenTitle = useAppSelector(state => state.title)
+    console.log(screenTitle)
     React.useEffect(() => {
-        document.title = "NNGC Landing Page"
-    }, [])
+        document.title = screenTitle.title? screenTitle.title : 'NNGC'
+    }, [screenTitle])
+
+    const location = useLocation();
 
 //create a function that will selection an item from the array of items
     return (
-        <Provider store={store}>
-            <BrowserRouter>
-        <ThemeProvider theme={theme}>
-     <Container
-            maxWidth={'xl'}
-            sx={{
-                background: '#fff',
-               fontColor: 'black',
-                height: '100%',
-                width: '100%',
 
-            }}
+<>
+                {location.pathname== '/login' || location.pathname=='/signup'? <Routes>
+                    <Route path={'/login'} element={<Login/>}/>
+                    <Route path={'/signup'} element={<Signup/>}/>
+                </Routes>
+                    :
+                    <ThemeProvider theme={theme}>
+                    <Container
+                        maxWidth={'xl'}
+                        sx={{
+                            background: '#fff',
+                            fontColor: 'black',
+                            height: '100%',
+                            width: '100%',
+                        }}
 
-     >
-         <Appbar/>
+                    >
+                        <Appbar/>
 
-    {/*     Appbar
-            Banner
-            Promotions
-            title
-            Services
-            footer
-            searchBox
-            appDrawer
-    */}
-         {/*<Home/>*/}
-         <Routes>
-        <Route path={'/'} element={<Landing/>}/>
-         <Route path={'/business'} element={<Business/>}/>
-        <Route path={'/residential_t'} element={<Residential/>}/>
-             <Route path={'/services'} element={<Services/>} />
-                <Route path={'/dumpster'} element={<Dumpster/>} />
-             <Route path={'/recycling'} element={<Recycling/>} />
-             <Route path={'/yardwaste'} element={<YardWaste/>} />
-             <Route path={'/construction/*'} element={<Construction/>}/>
-             <Route path={'/donations'} element={<AppointmentPickerEl/>}/>
-                <Route path={'/appointments'} element={<ClassAppointments/>}/>
-             <Route path={'/bill'} element={<Bill/>}/>
-         </Routes>
-         <Footer/>
-     </Container>
+                        {/*     Appbar
+Banner
+Promotions
+title
+Services
+footer
+searchBox
+appDrawer
+*/}
+                        {/*<Home/>*/}
+                        <Routes>
+                            <Route path={'/'} element={<Landing/>}/>
+                            <Route path={'/business'} element={<Business/>}/>
+                            <Route path={'/residential_t'} element={<Residential/>}/>
+                            <Route path={'/services'} element={<Services/>}/>
+                            <Route path={'/dumpster'} element={<Dumpster/>}/>
+                            <Route path={'/recycling'} element={<Recycling/>}/>
+                            <Route path={'/yardwaste'} element={<YardWaste/>}/>
+                            <Route path={'/construction/*'} element={<Construction/>}/>
+                            <Route path={'/donations'} element={<AppointmentPickerEl/>}/>
+                            <Route path={'/appointments'} element={<ClassAppointments/>}/>
+                            <Route path={'/bill'} element={<Bill/>}/>
+                        </Routes>
+                        <Footer/>
+                    </Container>
 
-        </ThemeProvider>
-            </BrowserRouter>
-        </Provider>
+                </ThemeProvider>
+                }
+              </>
+
     )
 }
 export default App;

@@ -4,9 +4,13 @@ import {RootState} from "./types";
 import {composeWithDevTools} from "@reduxjs/toolkit/dist/devtoolsExtension";
 import {consoleLogStateMiddleware} from "./middleware";
 import logger from "redux-logger";
+import {pageTitleSlice} from "./pageTitleSlice";
 
 const store = configureStore({
-    reducer: screenSizeReducer,
+    reducer: {
+        title: pageTitleSlice.reducer
+
+    },
 
     devTools: true,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
@@ -16,6 +20,6 @@ const store = configureStore({
         .prepend(
             consoleLogStateMiddleware,
 
-        ).concat(logger)
+        )
     })
 export default store;

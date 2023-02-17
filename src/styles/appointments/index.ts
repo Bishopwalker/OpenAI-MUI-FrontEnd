@@ -6,4 +6,5 @@ export const AppointmentContainer = styled(Box)(({theme}) => ({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    flexDirection: 'column',
 } as const))

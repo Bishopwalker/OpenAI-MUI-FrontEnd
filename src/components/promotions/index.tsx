@@ -26,7 +26,7 @@ const SliderPromotions = () => {
 //Create a math.random function to randomly select a message from the array
 
 
-console.log(number,'number')
+//console.log(number,'number')
     React.useEffect(() => {
         const interval = setInterval(() => {
        setShow(false);
