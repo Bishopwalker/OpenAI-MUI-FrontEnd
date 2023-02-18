@@ -65,8 +65,14 @@ const Signup = () => {
             <Styles>
                 <h1>🏁 Northern Neck Garbage Collection</h1>
                 <h2>Signup to Start Service or Rent a dumpster</h2>
-                <HomeLink/>
-
+                <Link to='/login'>
+                    <Button>Sign Up</Button>
+                </Link>
+                <Link to={'/landing'}>
+                    <Typography variant={'subtitle2'} gutterBottom align="center"   >
+                       Return to Landing
+                    </Typography>
+                </Link>
                 <WizardSignup
                     initialValues={{  over18:true  }}
                     onSubmit={onSubmit}

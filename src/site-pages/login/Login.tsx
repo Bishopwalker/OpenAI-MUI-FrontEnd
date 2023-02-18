@@ -8,6 +8,7 @@ import {Field, Form} from "react-final-form";
 import FormField from "../../components/forms/FormField";
 import {validateSignUp} from "../../components/forms/validate";
 import HomeLink from '../../components/forms/HomeLink'
+import ErrorWithDelay from "../../components/forms/ErrorWithDelay";
 
 const Login = () => {
     const dispatch = useAppDispatch()
@@ -20,6 +21,7 @@ const Login = () => {
     }
 
 
+    // @ts-ignore
     return (
         <LoginContainer>
             <HomeLink/>
@@ -27,44 +29,47 @@ const Login = () => {
             <Form
                 onSubmit={onSubmit}
                 validate={validateSignUp}
-                render={({ handleSubmit }) => (
+                render={({ handleSubmit, form, submitting, pristine, values }) => (
                     <form onSubmit={handleSubmit}>
-                        <h2>Simple Default Input</h2>
-                        <div>
-                            <label>First Name</label>
-                            <Field name="firstName" component="input" placeholder="First Name" />
-                        </div>
-
-                        <h2>An Arbitrary Reusable Input Component</h2>
-                        <div>
-                            <label>Last Name</label>
-                            <Field name="interests" component='input' />
-                        </div>
-
-                        <h2>Render Function</h2>
-                        <Field
-                            name="bio"
-                            render={({ input, meta }) => (
-                                <div>
-                                    <label>Bio</label>
-                                    <textarea {...input} />
-                                    {meta.touched && meta.error && <span>{meta.error}</span>}
-                                </div>
-                            )}
-                        />
-
-                        <h2>Render Function as Children</h2>
-                        <Field name="phone">
+                        <Field name="email">
                             {({ input, meta }) => (
                                 <div>
-                                    <label>Phone</label>
-                                    <input type="text" {...input} placeholder="Phone" />
-                                    {meta.touched && meta.error && <span>{meta.error}</span>}
+                                    <label>Email</label>
+                                    <input {...input} type="email" placeholder="Email" />
+                                    <ErrorWithDelay name="email" delay={1000}>
+                                        {/* @ts-ignore*/}
+                                        {error => <span>{error}</span>}
+                                    </ErrorWithDelay>
+                                </div>
+                            )}
+                        </Field>
+                        <Field name="password">
+                            {({ input, meta }) => (
+                                <div>
+                                    <label>Last Name</label>
+                                    <input {...input} type="password" placeholder="Password" />
+                                    <ErrorWithDelay name="password" delay={1000}>
+                                        {/* @ts-ignore*/}
+                                        {error => <span>{error}</span>}
+                                    </ErrorWithDelay>
                                 </div>
                             )}
                         </Field>
 
-                        <button type="submit">Submit</button>
+                        <div className="buttons">
+                            <button type="submit" disabled={submitting}>
+                                Submit
+                            </button>
+                            <button
+                                type="button"
+                                onClick={form.reset}
+                                disabled={submitting || pristine}
+                            >
+                                Reset
+                            </button>
+                        </div>
+                        {/* @ts-ignore*/}
+                        <pre>{JSON.stringify(values, 0, 2)}</pre>
                     </form>
                 )}
             />

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import {Form} from "react-final-form";
+import {useNavigate} from "react-router-dom";
 
 const WizardSignup = (props) => {
+const navigate = useNavigate();
     WizardSignup.Page = ({children}) => children;
 
     const [page, setPage] = React.useState(0);
@@ -21,12 +23,12 @@ const WizardSignup = (props) => {
         const activePage = React.Children.toArray(props.children)[page];
         return activePage.props.validate ? activePage.props.validate(values) : {};
     }
-
+console.log(location.pathname)
     const handleSubmit = (values) => {
         const {children, onSubmit} = props;
         const isLastPage = page === React.Children.count(children) - 1;
         if (isLastPage) {
-            return onSubmit(values);
+            return onSubmit(values), setTimeout(()=>{navigate('/login')},2000) ;
         } else {
             next(values);
         }
