@@ -84,8 +84,14 @@ export const validateAddress = (values: any) => {
     if (!values.state) {
         errors.state = 'Required'
     }
+    else if(values.state.length < 2){
+        errors.state = 'State Value must be 2 characters'
+    }
     if (!values.zip) {
         errors.zip = 'Required'
+    }
+    else if(values.zip.length < 5){
+        errors.zip = 'Must be at least 5 characters'
     }
     return errors
 }

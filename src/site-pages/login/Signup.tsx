@@ -7,6 +7,7 @@ import {  Link} from "react-router-dom";
 import { Field, Form, FormSpy} from 'react-final-form';
 import {ReactNode} from "react";
 import {
+    validateAddress,
     validateFirstName,
     validateLastName,
     validateLogin,
@@ -23,28 +24,11 @@ import Wizard from "../../components/forms/Wizard";
 // @ts-ignore
 import WizardSignup from "../../components/forms/WizardSignup";
 
-type signupProps = {
-    over18: boolean,
-firstName: string,
-lastName: string,
-email: string,
-    password: string,
-    phone: string,
-    services:string[]
 
-}
-const initialValues: signupProps = {
-    over18: true,
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    phone: '',
-    services: []
-}
+
 const Signup = () => {
 
-const [values, setValues] = React.useState<signupProps>(initialValues)
+
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch( changeTitle('Signup Form'))
@@ -58,9 +42,6 @@ const [values, setValues] = React.useState<signupProps>(initialValues)
         // @ts-ignore
         window.alert(JSON.stringify(values, 0, 2))
     }
-    React.useEffect(()=>{
-        console.log(values)
-    },[values])
 
 
 
@@ -99,7 +80,6 @@ const [values, setValues] = React.useState<signupProps>(initialValues)
                         <div>
                             <label>First Name</label>
                             <Field
-                                value={values.firstName}
                                 name="firstName"
                                 component="input"
                                 type="text"
@@ -112,7 +92,6 @@ const [values, setValues] = React.useState<signupProps>(initialValues)
                         <div>
                             <label>Last Name</label>
                             <Field
-                                value={values.lastName}
                                 name="lastName"
                                 component="input"
                                 type="text"
@@ -128,7 +107,6 @@ const [values, setValues] = React.useState<signupProps>(initialValues)
                         <div>
                             <label>Email</label>
                             <Field
-                                value={values.email}
                                 name="email"
                                 component="input"
                                 type="email"
@@ -139,7 +117,6 @@ const [values, setValues] = React.useState<signupProps>(initialValues)
                         <div>
                             <label>Password</label>
                             <Field
-                                value={values.password}
                                 name="password"
                                 component="input"
                                 type="password"
@@ -155,13 +132,78 @@ const [values, setValues] = React.useState<signupProps>(initialValues)
                         <div>
                             <label>Phone</label>
                             <Field
-                                value={values.phone}
                                 name="phone"
                                 component="input"
                                 type="phone"
                                 placeholder="Phone Number (xxx-xxx-xxxx)"
                             />
                             <Error name="phone" />
+                        </div>
+                    </Wizard.Page>
+
+                    <Wizard.Page
+                        validate={validateAddress}
+                    >
+                        <h3>Address</h3>
+                        <div>
+                            <label>House Number</label>
+                            <Field name="houseNumber"
+                                   component="input"
+                                   type="number"
+                                   placeholder="House Number"
+                            />
+                            <Error name="houseNumber" />
+                        </div>
+                        <div>
+                            <label>Street</label>
+                            <span>ex. Cella Haven lane...</span>
+                            <Field
+
+                                name="street"
+                                component="input"
+                                type="text"
+                                placeholder="Street"
+
+
+                            />
+                            <Error name="street" />
+                        </div>
+                        <div>
+                            <label>City</label>
+                            <Field
+
+                                name="city"
+                                component="input"
+                                type="text"
+                                placeholder="City"
+
+                            />
+                            <Error name="city" />
+                        </div>
+                        <div>
+                            <label>State</label>
+                            <Field
+
+                                name="state"
+                                component="input"
+                                type="text"
+                                placeholder="State"
+                                maxLength={2}
+
+                            />
+                            <Error name="state" />
+                        </div>
+                        <div>
+                            <label>Zip Code</label>
+                            <Field
+
+                                name="zip"
+                                component="input"
+                                type="number"
+                                placeholder="Zip Code"
+                                maxLength={5}
+                            />
+                            <Error name="zip" />
                         </div>
                     </Wizard.Page>
 
@@ -174,7 +216,6 @@ const [values, setValues] = React.useState<signupProps>(initialValues)
                         <div>
                             <label>Services</label>
                             <Field
-                                value={values.services}
                                 name="services"
                                 component="select"
                                 multiple style={{
@@ -199,15 +240,7 @@ const [values, setValues] = React.useState<signupProps>(initialValues)
                 <FormSpy
                     subscription={{ values: true,dirtySinceLastSubmit:true,errors:true }}
                     onChange={ ({ values,dirtySinceLastSubmit,errors }) => {
-                        setValues({
-                            email: values.email,
-                            firstName: values.firstName,
-                            lastName: values.lastName,
-                            over18: values.over18,
-                            password: values.password,
-                            phone: values.phone,
-                            services: [], ...values})
-                       // console.log(values)
+
                         console.log(dirtySinceLastSubmit)
                         console.log(errors)
                     } }
