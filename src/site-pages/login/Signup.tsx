@@ -40,7 +40,8 @@ const Signup = () => {
     const onSubmit = async (values: any) => {
         await sleep(300)
         // @ts-ignore
-        window.alert(JSON.stringify(values, 0, 2))
+        window.alert("Northern Neck Garbage Thanks you for signing up, Click Log in" +
+            JSON.stringify(values, 0, 2))
     }
 
 
@@ -240,29 +241,12 @@ const Signup = () => {
                 <FormSpy
                     subscription={{ values: true,dirtySinceLastSubmit:true,errors:true }}
                     onChange={ ({ values,dirtySinceLastSubmit,errors }) => {
-
+                        console.log(values)
                         console.log(dirtySinceLastSubmit)
                         console.log(errors)
                     } }
                 >
-                    {props=>{
-                        console.log(props)
-                        return(
-                        <>
-                        <Wizard.Navigation>
-                            <Wizard.Back>
-                                <Button variant="contained" color="primary" disabled={props.dirtySinceLastSubmit}>Back</Button>
-                            </Wizard.Back>
-                            <Wizard.Next>
-                                <Button variant="contained" color="primary" disabled={props.dirtySinceLastSubmit}>Next</Button>
-                            </Wizard.Next>
-                            <Wizard.Submit>
-                                <Button variant="contained" color="primary" disabled={props.dirtySinceLastSubmit}>Submit</Button>
-                            </Wizard.Submit>
-                        </Wizard.Navigation>
-                        <Button variant="contained" color="primary" disabled={props.pristine} onClick={()=>props.form.reset()} >Reset</Button>
-                        </>
-                        )}}
+
                 </FormSpy>
                 </WizardSignup>
             </Styles>
