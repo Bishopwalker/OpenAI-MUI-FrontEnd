@@ -4,22 +4,53 @@ import {changeTitle} from "../../redux/pageTitleSlice";
 import {LoginContainer, LoginContent} from "../../styles/login";
 import {Box, Button, Grid, Typography} from "@mui/material";
 import {  Link} from "react-router-dom";
-import { Field, Form, FormSpy } from 'react-final-form';
+import { Field, Form, FormSpy} from 'react-final-form';
 import {ReactNode} from "react";
-import {validateLogin, validateService, validateSignUp} from "../../components/forms/validate";
+import {
+    validateFirstName,
+    validateLastName,
+    validateLogin,
+    validatePhone,
+    validateService,
+    validateSignUp
+} from "../../components/forms/validate";
 import HomeLink from '../../components/forms/HomeLink'
 {/* @ts-ignore*/}
 import Styles from '../../styles/form/Styles'
 import ErrorWithDelay from "../../components/forms/ErrorWithDelay";
 //@ts-ignore
 import Wizard from "../../components/forms/Wizard";
+// @ts-ignore
+import WizardSignup from "../../components/forms/WizardSignup";
 
+type signupProps = {
+    over18: boolean,
+firstName: string,
+lastName: string,
+email: string,
+    password: string,
+    phone: string,
+    services:string[]
+
+}
+const initialValues: signupProps = {
+    over18: true,
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    phone: '',
+    services: []
+}
 const Signup = () => {
+
+const [values, setValues] = React.useState<signupProps>(initialValues)
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch( changeTitle('Signup Form'))
     },[])
     const [sent, setSent] = React.useState(false);
+
     const sleep = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms))
 
     const onSubmit = async (values: any) => {
@@ -27,6 +58,11 @@ const Signup = () => {
         // @ts-ignore
         window.alert(JSON.stringify(values, 0, 2))
     }
+    React.useEffect(()=>{
+        console.log(values)
+    },[values])
+
+
 
     // @ts-ignore
     const Error = ({ name }) => (
@@ -48,31 +84,13 @@ const Signup = () => {
                 <h1>🏁 Northern Neck Garbage Collection</h1>
                 <h2>Signup to Start Service or Rent a dumpster</h2>
                 <HomeLink/>
-                <p>
-                    If you Love the Northern Neck, you'll love our service. We are a locally owned business. We are proud supporters of Northern Neck Christian School!
-                    If you are a new customer, please fill out the form below to start service. If you are a current customer, please {' '}
-                    <code>login</code> to your account.
-                </p>
-                <div>
 
-                    Things to stop doing:
-                    <ul>
-                        <li>Loading Wet trash Bags into your car</li>
-                        <li>
-                            Asking your spouse to take the trash out
-                        </li>
-                        <li>
-                            Leaving trash bags in the driveway for days
-                        </li>
-                    </ul>
-
-                </div>
-                <Wizard
-                    initialValues={{  over18:true , service: 'resTrash&Recycle' }}
+                <WizardSignup
+                    initialValues={{  over18:true  }}
                     onSubmit={onSubmit}
                 >
                     <Wizard.Page
-                    validate={validateSignUp}
+                        validate={validateSignUp}
                     >
                         <div>
                             <label>Over 18?</label>
@@ -81,10 +99,12 @@ const Signup = () => {
                         <div>
                             <label>First Name</label>
                             <Field
+                                value={values.firstName}
                                 name="firstName"
                                 component="input"
                                 type="text"
                                 placeholder="First Name"
+
 
                             />
                             <Error name="firstName" />
@@ -92,6 +112,7 @@ const Signup = () => {
                         <div>
                             <label>Last Name</label>
                             <Field
+                                value={values.lastName}
                                 name="lastName"
                                 component="input"
                                 type="text"
@@ -107,6 +128,7 @@ const Signup = () => {
                         <div>
                             <label>Email</label>
                             <Field
+                                value={values.email}
                                 name="email"
                                 component="input"
                                 type="email"
@@ -117,6 +139,7 @@ const Signup = () => {
                         <div>
                             <label>Password</label>
                             <Field
+                                value={values.password}
                                 name="password"
                                 component="input"
                                 type="password"
@@ -125,6 +148,23 @@ const Signup = () => {
                             <Error name="password" />
                         </div>
                     </Wizard.Page>
+
+                    <Wizard.Page
+                        validate={validatePhone}
+                    >
+                        <div>
+                            <label>Phone</label>
+                            <Field
+                                value={values.phone}
+                                name="phone"
+                                component="input"
+                                type="phone"
+                                placeholder="Phone Number (xxx-xxx-xxxx)"
+                            />
+                            <Error name="phone" />
+                        </div>
+                    </Wizard.Page>
+
                     <Wizard.Page
                         validate={validateService}
                     >
@@ -133,10 +173,14 @@ const Signup = () => {
                             </Typography>
                         <div>
                             <label>Services</label>
-                            <Field  name="services" component="select" multiple style={{
+                            <Field
+                                value={values.services}
+                                name="services"
+                                component="select"
+                                multiple style={{
                                  height: '220px',
                                 scrollBehavior: 'forced',
-                                overflow: 'scroll',
+                                overflowY: 'scroll',
 
                             }}>
                                 <option value="residentialTrash">🐷 Residential Trash "only"</option>
@@ -152,8 +196,42 @@ const Signup = () => {
                             <Error name="services" />
                         </div>
                     </Wizard.Page>
-
-                </Wizard>
+                <FormSpy
+                    subscription={{ values: true,dirtySinceLastSubmit:true,errors:true }}
+                    onChange={ ({ values,dirtySinceLastSubmit,errors }) => {
+                        setValues({
+                            email: values.email,
+                            firstName: values.firstName,
+                            lastName: values.lastName,
+                            over18: values.over18,
+                            password: values.password,
+                            phone: values.phone,
+                            services: [], ...values})
+                       // console.log(values)
+                        console.log(dirtySinceLastSubmit)
+                        console.log(errors)
+                    } }
+                >
+                    {props=>{
+                        console.log(props)
+                        return(
+                        <>
+                        <Wizard.Navigation>
+                            <Wizard.Back>
+                                <Button variant="contained" color="primary" disabled={props.dirtySinceLastSubmit}>Back</Button>
+                            </Wizard.Back>
+                            <Wizard.Next>
+                                <Button variant="contained" color="primary" disabled={props.dirtySinceLastSubmit}>Next</Button>
+                            </Wizard.Next>
+                            <Wizard.Submit>
+                                <Button variant="contained" color="primary" disabled={props.dirtySinceLastSubmit}>Submit</Button>
+                            </Wizard.Submit>
+                        </Wizard.Navigation>
+                        <Button variant="contained" color="primary" disabled={props.pristine} onClick={()=>props.form.reset()} >Reset</Button>
+                        </>
+                        )}}
+                </FormSpy>
+                </WizardSignup>
             </Styles>
         </LoginContainer>
     )
