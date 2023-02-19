@@ -23,7 +23,7 @@ const navigate = useNavigate();
         const activePage = React.Children.toArray(props.children)[page];
         return activePage.props.validate ? activePage.props.validate(values) : {};
     }
-console.log(location.pathname)
+
     const handleSubmit = (values) => {
         const {children, onSubmit} = props;
         const isLastPage = page === React.Children.count(children) - 1;

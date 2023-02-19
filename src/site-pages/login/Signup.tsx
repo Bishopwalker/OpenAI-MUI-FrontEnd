@@ -8,6 +8,7 @@ import { Field, Form, FormSpy} from 'react-final-form';
 import {ReactNode} from "react";
 import {
     validateAddress,
+    validateCounty,
     validateFirstName,
     validateLastName,
     validateLogin,
@@ -23,6 +24,7 @@ import ErrorWithDelay from "../../components/forms/ErrorWithDelay";
 import Wizard from "../../components/forms/Wizard";
 // @ts-ignore
 import WizardSignup from "../../components/forms/WizardSignup";
+import axios from "axios";
 
 
 
@@ -40,8 +42,16 @@ const Signup = () => {
     const onSubmit = async (values: any) => {
         await sleep(300)
         // @ts-ignore
-        window.alert("Northern Neck Garbage Thanks you for signing up, Click Log in" +
-            JSON.stringify(values, 0, 2))
+        window.alert("Northern Neck Garbage Thanks you for signing up, Click Log in" + JSON.stringify(values, 0, 2))
+
+        await axios.post('http://localhost:8080/customer/register', values)
+                .then((response) => {
+                console.log(response)
+                setSent(true)
+            })
+                .catch((error) => {
+                console.log(error)
+            })
     }
 
 
@@ -52,7 +62,14 @@ const Signup = () => {
             name={name}
             subscription={{ touched: true, error: true }}
             render={({ meta: { touched, error } }) =>
-                touched && error ? <span>{error}</span> : null
+                touched && error ?
+                  <Typography variant={'subtitle2'} component={'span'}   align="center" sx={{
+                        fontWeight: 'bold',
+                  }}    >
+                      { error}
+                    </Typography>
+
+                    : null
             }
         />
     )
@@ -74,16 +91,39 @@ const Signup = () => {
                     </Typography>
                 </Link>
                 <WizardSignup
-                    initialValues={{  over18:true  }}
+                    initialValues={{  county: 'northumberland', state: 'va'  }}
                     onSubmit={onSubmit}
                 >
                     <Wizard.Page
+                        validate={validateCounty}
+                    >
+                        <Typography variant={'subtitle2'} gutterBottom align="center"   >
+                            Press Space bar to choose.
+                        </Typography>
+                        <div>
+                            <label>County</label>
+                            <Field
+                                name="county"
+                                component="select"
+                                 style={{
+                                scrollBehavior: 'forced',
+                                overflowY: 'scroll',
+
+                            }}>
+                                <option value="northumberland">Northumberland County</option>
+                                <option value="lancaster">Lancaster County</option>
+                                <option value="richmond">Richmond County</option>
+                                <option value="westmoreland">Westmoreland County</option>
+
+                            </Field>
+                            <Error name="county" />
+                        </div>
+                    </Wizard.Page>
+
+
+                    <Wizard.Page
                         validate={validateSignUp}
                     >
-                        <div>
-                            <label>Over 18?</label>
-                            <Field name="over18" component="input" type="checkbox" />
-                        </div>
                         <div>
                             <label>First Name</label>
                             <Field
@@ -166,14 +206,14 @@ const Signup = () => {
                             <span>ex. Cella Haven lane...</span>
                             <Field
 
-                                name="street"
+                                name="streetName"
                                 component="input"
                                 type="text"
                                 placeholder="Street"
 
 
                             />
-                            <Error name="street" />
+                            <Error name="streetName" />
                         </div>
                         <div>
                             <label>City</label>
@@ -204,13 +244,13 @@ const Signup = () => {
                             <label>Zip Code</label>
                             <Field
 
-                                name="zip"
+                                name="zipCode"
                                 component="input"
                                 type="number"
                                 placeholder="Zip Code"
                                 maxLength={5}
                             />
-                            <Error name="zip" />
+                            <Error name="zipCode" />
                         </div>
                     </Wizard.Page>
 

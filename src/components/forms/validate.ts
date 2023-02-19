@@ -1,3 +1,5 @@
+
+
 export const validateSignUp = (values: any) => {
     const errors: any = {}
     if (!values.firstName) {
@@ -11,12 +13,7 @@ export const validateSignUp = (values: any) => {
     } else if(values.lastName.length < 2){
         errors.lastName = 'Must be at least 2 characters'
     }
-    // if (values.over18 ==false) {
-    //     errors.over18 = 'Required'
-    // }
-  if (values.over18 !== true) {
-        errors.over18 = 'Must be >18'
-    }
+
     return errors
 
 }
@@ -51,7 +48,17 @@ export const validateLogin = (values: any) => {
     }
     return errors
 }
-
+export const validateCounty = (values: any) => {
+    const errors: any = {}
+    if (!values.county) {
+        errors.county = 'Required'
+    }
+    else if(values.county !== 'northumberland'){
+        errors.county = `We haven't got services in ${values.county} yet, please email info@northernneckgarbage.com to find
+        out when we will be in your area.`
+    }
+    return errors
+}
 export const validateService = (values: any) => {
     const errors: any = {}
     if (!values.services) {
@@ -75,8 +82,8 @@ export const validateAddress = (values: any) => {
     if (!values.houseNumber) {
         errors.address = 'Required'
     }
-    if (!values.street) {
-        errors.street = 'Required'
+    if (!values.streetName) {
+        errors.streetName = 'Required'
     }
     if (!values.city) {
         errors.city = 'Required'
@@ -87,11 +94,14 @@ export const validateAddress = (values: any) => {
     else if(values.state.length < 2){
         errors.state = 'State Value must be 2 characters'
     }
-    if (!values.zip) {
-        errors.zip = 'Required'
+    else if(values.state !== 'va'){
+        errors.state = 'We only service Virginia at this time'
     }
-    else if(values.zip.length < 5){
-        errors.zip = 'Must be at least 5 characters'
+    if (!values.zipCode) {
+        errors.zipCode = 'Required'
+    }
+    else if(values.zipCode.length < 5){
+        errors.zipCode = 'Must be at least 5 characters'
     }
     return errors
 }
