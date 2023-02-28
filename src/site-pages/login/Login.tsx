@@ -24,7 +24,7 @@ const Login = () => {
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch( changeTitle('Login Form'))
-        dispatch(changeUserLogInfo({userLogInfo:response,isLoggedIn:true}))
+        dispatch(changeUserLogInfo({userLogInfo:response, isLoggedIn: true}))
     },[dispatch,response,setResponse])
 console.log(response)
     const onSubmit = async (values: any) => {
@@ -40,6 +40,7 @@ console.log(response)
             .catch((error) => {
                 console.log(error)
             })
+
             }
 
 

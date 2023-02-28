@@ -5,10 +5,13 @@ import {composeWithDevTools} from "@reduxjs/toolkit/dist/devtoolsExtension";
 import {consoleLogStateMiddleware} from "./middleware";
 import logger from "redux-logger";
 import {pageTitleSlice} from "./pageTitleSlice";
+import {userLogInfoSlice} from "./userLogInfoSlice";
 
 const store = configureStore({
     reducer: {
-        title: pageTitleSlice.reducer
+        title: pageTitleSlice.reducer,
+        userInfo: userLogInfoSlice.reducer,
+
 
     },
 

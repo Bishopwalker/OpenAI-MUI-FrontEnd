@@ -27,16 +27,20 @@ import Login from "./site-pages/login/Login";
 import Signup from "./site-pages/login/Signup";
 import {useAppSelector} from "./redux/hooks/hooks";
 import {useLocation} from "react-router-dom";
+import {changeUserLogInfo} from "./redux/userLogInfoSlice";
 
 function App() {
     const screenTitle = useAppSelector(state => state.title)
+    const userInfo = useAppSelector(state => state.userInfo.userLogInfo)
+
     console.log(screenTitle)
     React.useEffect(() => {
+
         document.title = screenTitle.title? screenTitle.title : 'NNGC'
     }, [screenTitle])
 
     const location = useLocation();
-
+console.log(userInfo)
 //create a function that will selection an item from the array of items
     return (
 

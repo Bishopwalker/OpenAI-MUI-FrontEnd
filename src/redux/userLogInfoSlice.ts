@@ -24,7 +24,26 @@ export const userLogInfoSlice = createSlice({
     reducers: {
         changeUserLogInfo: (state, action) => {
             state.userLogInfo = action.payload
+
         },
+        logoutUser: (state, action) => {
+            state.userLogInfo = {
+                id: '',
+                name: '',
+                email: '',
+                password: '',
+                phone: '',
+                houseNumber: '',
+                streetName: '',
+                city: '',
+                state: '',
+                zipCode: '',
+                authorities: [
+                    {authority: ''}
+                ],
+            }
+            state.isLoggedIn = false
+        }
     }
 
 })
