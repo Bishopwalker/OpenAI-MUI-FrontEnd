@@ -15,14 +15,18 @@ import Wizard from "../../components/forms/Wizard";
 import WizardSignup from "../../components/forms/WizardSignup";
 import axios from "axios";
 import Error from "../../components/forms/Error";
+import {changeUserLogInfo} from "../../redux/userLogInfoSlice";
 
 const Login = () => {
+    const [sent, setSent] = React.useState(false);
+    const [response, setResponse] = React.useState<any>(null);
+
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch( changeTitle('Login Form'))
-    },[])
-    const [sent, setSent] = React.useState(false);
-
+        dispatch(changeUserLogInfo({userLogInfo:response,isLoggedIn:true}))
+    },[dispatch,response,setResponse])
+console.log(response)
     const onSubmit = async (values: any) => {
 
         // @ts-ignore
@@ -30,7 +34,7 @@ const Login = () => {
 
         await axios.post('http://localhost:8080/auth/nngc/authenticate', values)
             .then((response) => {
-                console.log(response)
+               setResponse(response.data.customer)
                 setSent(true)
             })
             .catch((error) => {
