@@ -26,6 +26,8 @@ import Wizard from "../../components/forms/Wizard";
 import WizardSignup from "../../components/forms/WizardSignup";
 import axios from "axios";
 
+import Error from "../../components/forms/Error";
+
 
 
 const Signup = () => {
@@ -37,14 +39,14 @@ const Signup = () => {
     },[])
     const [sent, setSent] = React.useState(false);
 
-    const sleep = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms))
+    //const sleep = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms))
 
     const onSubmit = async (values: any) => {
-        await sleep(300)
+    //    await sleep(300)
         // @ts-ignore
         window.alert("Northern Neck Garbage Thanks you for signing up, Click Log in" + JSON.stringify(values, 0, 2))
 
-        await axios.post('http://localhost:8080/customer/register', values)
+        await axios.post('http://localhost:8080/auth/nngc/registration', values)
                 .then((response) => {
                 console.log(response)
                 setSent(true)
@@ -57,22 +59,6 @@ const Signup = () => {
 
 
     // @ts-ignore
-    const Error = ({ name }) => (
-        <Field
-            name={name}
-            subscription={{ touched: true, error: true }}
-            render={({ meta: { touched, error } }) =>
-                touched && error ?
-                  <Typography variant={'subtitle2'} component={'span'}   align="center" sx={{
-                        fontWeight: 'bold',
-                  }}    >
-                      { error}
-                    </Typography>
-
-                    : null
-            }
-        />
-    )
 
 
     // @ts-ignore

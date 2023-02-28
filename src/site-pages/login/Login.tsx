@@ -6,19 +6,37 @@ import {Button, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 import {Field, Form} from "react-final-form";
 import FormField from "../../components/forms/FormField";
-import {validateSignUp} from "../../components/forms/validate";
+import {validateLogin} from "../../components/forms/validate";
 import HomeLink from '../../components/forms/HomeLink'
 import ErrorWithDelay from "../../components/forms/ErrorWithDelay";
+//@ts-ignore
+import Wizard from "../../components/forms/Wizard";
+// @ts-ignore
+import WizardSignup from "../../components/forms/WizardSignup";
+import axios from "axios";
+import Error from "../../components/forms/Error";
 
 const Login = () => {
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch( changeTitle('Login Form'))
     },[])
+    const [sent, setSent] = React.useState(false);
 
-    const onSubmit = (values: any) => {
-        console.log(values)
-    }
+    const onSubmit = async (values: any) => {
+
+        // @ts-ignore
+        window.alert("Northern Neck Garbage Thanks you for signing up, Click Log in" + JSON.stringify(values, 0, 2))
+
+        await axios.post('http://localhost:8080/auth/nngc/authenticate', values)
+            .then((response) => {
+                console.log(response)
+                setSent(true)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+            }
 
 
     // @ts-ignore
@@ -26,53 +44,34 @@ const Login = () => {
         <LoginContainer>
             <HomeLink/>
             <LoginContent>
-            <Form
-                onSubmit={onSubmit}
-                validate={validateSignUp}
-                render={({ handleSubmit, form, submitting, pristine, values }) => (
-                    <form onSubmit={handleSubmit}>
-                        <Field name="email">
-                            {({ input, meta }) => (
-                                <div>
-                                    <label>Email</label>
-                                    <input {...input} type="email" placeholder="Email" />
-                                    <ErrorWithDelay name="email" delay={1000}>
-                                        {/* @ts-ignore*/}
-                                        {error => <span>{error}</span>}
-                                    </ErrorWithDelay>
-                                </div>
-                            )}
-                        </Field>
-                        <Field name="password">
-                            {({ input, meta }) => (
-                                <div>
-                                    <label>Last Name</label>
-                                    <input {...input} type="password" placeholder="Password" />
-                                    <ErrorWithDelay name="password" delay={1000}>
-                                        {/* @ts-ignore*/}
-                                        {error => <span>{error}</span>}
-                                    </ErrorWithDelay>
-                                </div>
-                            )}
-                        </Field>
-
-                        <div className="buttons">
-                            <button type="submit" disabled={submitting}>
-                                Submit
-                            </button>
-                            <button
-                                type="button"
-                                onClick={form.reset}
-                                disabled={submitting || pristine}
-                            >
-                                Reset
-                            </button>
-                        </div>
-                        {/* @ts-ignore*/}
-                        <pre>{JSON.stringify(values, 0, 2)}</pre>
-                    </form>
-                )}
+<WizardSignup
+onSubmit={onSubmit}
+ >
+    <Wizard.Page
+        validate={validateLogin}
+    >
+        <div>
+            <label>Email</label>
+            <Field
+                name="email"
+                component="input"
+                type="email"
+                placeholder="Email"
             />
+            <Error name="email" />
+        </div>
+        <div>
+            <label>Password</label>
+            <Field
+                name="password"
+                component="input"
+                type="password"
+                placeholder="Password"
+            />
+            <Error name="password" />
+        </div>
+    </Wizard.Page>
+</WizardSignup>
             </LoginContent>
         </LoginContainer>
     )
