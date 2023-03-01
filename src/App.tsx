@@ -45,11 +45,7 @@ console.log(userInfo)
     return (
 
 <>
-                {location.pathname== '/login' || location.pathname=='/signup'? <Routes>
-                    <Route path={'/login'} element={<Login/>}/>
-                    <Route path={'/signup'} element={<Signup/>}/>
-                </Routes>
-                    :
+
                     <ThemeProvider theme={theme}>
                     <Container
                         maxWidth={'xl'}
@@ -74,6 +70,8 @@ appDrawer
 */}
                         {/*<Home/>*/}
                         <Routes>
+                            <Route path={'/login'} element={<Login/>}/>
+                            <Route path={'/signup'} element={<Signup/>}/>
                             <Route path={'/'} element={<Landing/>}/>
                             <Route path={'/business'} element={<Business/>}/>
                             <Route path={'/residential_t'} element={<Residential/>}/>
@@ -90,7 +88,7 @@ appDrawer
                     </Container>
 
                 </ThemeProvider>
-                }
+
               </>
 
     )
