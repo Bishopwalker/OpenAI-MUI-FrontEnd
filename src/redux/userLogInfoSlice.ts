@@ -1,6 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {useAppSelector} from "./hooks/hooks";
-import jwtDecode from "jwt-decode";
 import axios from "axios";
 import store from "./store";
 
@@ -31,12 +30,15 @@ export const userLogInfoSlice = createSlice({
     },
     reducers: {
         changeUserLogInfo: (state, action) => {
-            state.userLogInfo = action.payload
+            const mergedState = {...state.userLogInfo, ...action.payload}
+            return mergedState;
 
         },
         updateToken: (state, action) => {
-            state.userLogInfo = action.payload
+            const mergedState = {...state.userLogInfo, ...action.payload}
+
             console.log(action.payload)
+            return mergedState;
         }
 
 

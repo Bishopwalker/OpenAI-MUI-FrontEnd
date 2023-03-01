@@ -8,7 +8,7 @@ export default function HomeLink() {
             <Link to='/signup'>
                 <Button>Sign Up</Button>
             </Link>
-            <Link to={'/landing'}>
+            <Link to={'/'}>
                 <Typography variant={'subtitle2'} gutterBottom align="center"   >
                     Landing
                 </Typography>
