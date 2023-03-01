@@ -20,13 +20,14 @@ import {changeUserLogInfo} from "../../redux/userLogInfoSlice";
 const Login = () => {
     const [sent, setSent] = React.useState(false);
     const [response, setResponse] = React.useState<any>(null);
+    const [token, setToken] = React.useState<any>(null);
 
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch( changeTitle('Login Form'))
-        dispatch(changeUserLogInfo({userLogInfo:response, isLoggedIn: true}))
+        dispatch(changeUserLogInfo({userLogInfo:response, isLoggedIn: true, token: token}))
     },[dispatch,response,setResponse])
-console.log(response)
+
     const onSubmit = async (values: any) => {
 
         // @ts-ignore
@@ -34,7 +35,8 @@ console.log(response)
 
         await axios.post('http://localhost:8080/auth/nngc/authenticate', values)
             .then((response) => {
-               setResponse(response.data.customer)
+               setResponse(response.data.customer )
+                setToken(response.data.token)
                 setSent(true)
             })
             .catch((error) => {
