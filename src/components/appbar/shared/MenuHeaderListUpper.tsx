@@ -11,7 +11,17 @@ import {changeTitle} from "../../../redux/pageTitleSlice";
 
 
 const MenuHeaderListUpper = ()=>{
+    const userInfo = useAppSelector(state => state.userInfo.userLogInfo)
+    let isLoggedIn
+    if(userInfo === null){
+        isLoggedIn = false
+    }else{
+        isLoggedIn = true
+    }
+    React.useEffect(()=>{
 
+    },[userInfo])
+console.log('userInfo',userInfo)
     return (
          <AppbarHeader>
 
@@ -41,7 +51,7 @@ const MenuHeaderListUpper = ()=>{
                  </Link>
                 </ListItemButton>
                 <ListItemButton>
-                  <Link to={'/signup'}>
+                  <Link to={isLoggedIn?'/signup':'/login'}>
                     <ListItemText primary="My Account"/>
                   </Link>
                 </ListItemButton>

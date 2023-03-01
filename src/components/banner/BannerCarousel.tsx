@@ -16,7 +16,7 @@ const images =[
     scr:'/images/trashcanBig.jpg',
     alt:'trashcan',
     description:'We offer residential trash pickup for your home. We have a variety of trash cans to choose from.',
-        link:'/home'
+        link:'/resential_t'
 
 },
     {

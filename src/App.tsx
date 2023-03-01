@@ -28,6 +28,8 @@ import Signup from "./site-pages/login/Signup";
 import {useAppSelector} from "./redux/hooks/hooks";
 import {useLocation} from "react-router-dom";
 import {changeUserLogInfo} from "./redux/userLogInfoSlice";
+import {LoginContainer} from "./styles/login";
+import HomeLink from "./components/forms/HomeLink";
 
 function App() {
     const screenTitle = useAppSelector(state => state.title)
@@ -39,8 +41,6 @@ function App() {
         document.title = screenTitle.title? screenTitle.title : 'NNGC'
     }, [screenTitle])
 
-    const location = useLocation();
-console.log(userInfo)
 //create a function that will selection an item from the array of items
     return (
 
@@ -70,8 +70,8 @@ appDrawer
 */}
                         {/*<Home/>*/}
                         <Routes>
-                            <Route path={'/login'} element={<Login/>}/>
-                            <Route path={'/signup'} element={<Signup/>}/>
+
+
                             <Route path={'/'} element={<Landing/>}/>
                             <Route path={'/business'} element={<Business/>}/>
                             <Route path={'/residential_t'} element={<Residential/>}/>
@@ -83,6 +83,8 @@ appDrawer
                             <Route path={'/donations'} element={<AppointmentPickerEl/>}/>
                             <Route path={'/appointments'} element={<ClassAppointments/>}/>
                             <Route path={'/bill'} element={<Bill/>}/>
+                              <Route path={'/login'} element={<Login/>}/>
+                                <Route path={'/signup'} element={<Signup/>}/>
                         </Routes>
                         <Footer/>
                     </Container>
