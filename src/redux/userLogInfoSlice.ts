@@ -17,13 +17,15 @@ export const userLogInfoSlice = createSlice({
             city: '',
             state: '',
             zipCode: '',
+            enabled: false,
            authorities: [
                {authority: ''}
            ],
             isLoggedIn: false,
             loginAttemptCount: 0,
             token: '',
-            accountPage:'/account'
+            accountPage:'/account',
+
 
         },
 

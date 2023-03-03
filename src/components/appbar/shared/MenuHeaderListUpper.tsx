@@ -21,6 +21,7 @@ const MenuHeaderListUpper = ()=>{
     React.useEffect(()=>{
 
     },[userInfo])
+    console.log(isLoggedIn)
 console.log('userInfo',userInfo)
     return (
          <AppbarHeader>
@@ -51,7 +52,7 @@ console.log('userInfo',userInfo)
                  </Link>
                 </ListItemButton>
                 <ListItemButton>
-                  <Link to={isLoggedIn?'/signup':'/login'}>
+                  <Link to={isLoggedIn?'/bill':'/login'}>
                     <ListItemText primary="My Account"/>
                   </Link>
                 </ListItemButton>

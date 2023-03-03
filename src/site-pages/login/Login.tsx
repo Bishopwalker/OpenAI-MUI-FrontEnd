@@ -3,7 +3,7 @@ import {LoginContainer, LoginContent} from "../../styles/login";
 import {useAppDispatch} from "../../redux/hooks/hooks";
 import {changeTitle} from "../../redux/pageTitleSlice";
 import {Button, Typography} from "@mui/material";
-import {Link} from "react-router-dom";
+import {Link, useNavigate, useNavigation} from "react-router-dom";
 import {Field, Form} from "react-final-form";
 import FormField from "../../components/forms/FormField";
 import {validateLogin} from "../../components/forms/validate";
@@ -27,7 +27,7 @@ const Login = () => {
         dispatch( changeTitle('Login Form'))
         dispatch(changeUserLogInfo({userLogInfo:response, isLoggedIn: true, token: token}))
     },[dispatch,response,setResponse])
-
+ let nav = useNavigate();
     const onSubmit = async (values: any) => {
 
         // @ts-ignore
@@ -38,6 +38,7 @@ const Login = () => {
                setResponse(response.data.customer )
                 setToken(response.data.token)
                 setSent(true)
+                nav("/bill")
             })
             .catch((error) => {
                 console.log(error)

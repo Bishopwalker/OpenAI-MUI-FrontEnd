@@ -30,6 +30,7 @@ import {useLocation} from "react-router-dom";
 import {changeUserLogInfo} from "./redux/userLogInfoSlice";
 import {LoginContainer} from "./styles/login";
 import HomeLink from "./components/forms/HomeLink";
+import RequireEnabled from "./site-pages/login/auth/RequireEnabled";
 
 function App() {
     const screenTitle = useAppSelector(state => state.title)
@@ -59,16 +60,7 @@ function App() {
                     >
                         <Appbar/>
 
-                        {/*     Appbar
-Banner
-Promotions
-title
-Services
-footer
-searchBox
-appDrawer
-*/}
-                        {/*<Home/>*/}
+
                         <Routes>
 
 
@@ -81,10 +73,12 @@ appDrawer
                             <Route path={'/yardwaste'} element={<YardWaste/>}/>
                             <Route path={'/construction/*'} element={<Construction/>}/>
                             <Route path={'/donations'} element={<AppointmentPickerEl/>}/>
-                            <Route path={'/appointments'} element={<ClassAppointments/>}/>
-                            <Route path={'/bill'} element={<Bill/>}/>
                               <Route path={'/login'} element={<Login/>}/>
                                 <Route path={'/signup'} element={<Signup/>}/>
+                            <Route element={<RequireEnabled/>} >
+                                <Route path={'/appointments'} element={<ClassAppointments/>}/>
+                                <Route path={'/bill'} element={<Bill/>}/>
+                            </Route>
                         </Routes>
                         <Footer/>
                     </Container>
