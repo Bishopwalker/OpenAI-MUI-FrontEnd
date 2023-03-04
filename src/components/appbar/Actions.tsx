@@ -1,17 +1,18 @@
 import * as React from "react";
 import {MyList} from "../../styles/appbar";
-import {ListItemButton, ListItemIcon} from "@mui/material";
+import {Divider, ListItemButton, ListItemIcon} from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
 
 
 const Actions = () => {
 
+
     return (
-       <MyList sx={{
+       <MyList    sx={{
            display: 'flex',
-              flexDirection: 'column',
-                justifyContent: 'space-evenly',
+           flexDirection:'row',
+                justifyContent: 'center',
 
        }} >
            <ListItemButton>
@@ -19,6 +20,7 @@ const Actions = () => {
                    <FavoriteIcon/>
                </ListItemIcon>
            </ListItemButton>
+           <Divider orientation='vertical' flexItem />
 
            <ListItemButton sx={{
                position: 'relative',
@@ -28,6 +30,7 @@ const Actions = () => {
                    <PersonIcon/>
                </ListItemIcon>
            </ListItemButton>
+           <Divider orientation='vertical' flexItem />
        </MyList>
     )
 }

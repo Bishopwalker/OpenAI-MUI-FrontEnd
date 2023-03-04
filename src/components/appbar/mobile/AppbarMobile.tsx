@@ -10,7 +10,7 @@ import SliderPromotions from "../../promotions";
 type Props = {
     matches: boolean;
 }
-const img='src/assets/garbage-truck.svg'
+const img='/images/garbage-truck.svg'
 const AppbarMobile = ({matches}:Props) => {
 
     return (

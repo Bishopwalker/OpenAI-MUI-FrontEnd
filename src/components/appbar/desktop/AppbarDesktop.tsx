@@ -1,23 +1,32 @@
 import * as React from "react";
-import {AppbarContainer, AppbarHeaderLower, MyList} from "../../../styles/appbar";
+import {
+    ActionIconsContainerDesktop,
+    ActionIconsContainerMobile,
+    AppbarContainer,
+    AppbarHeaderLower,
+    MyList
+} from "../../../styles/appbar";
 import {Grid, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import MenuHeaderList from "../shared/MenuHeaderList";
 import MenuHeaderListUpper from "../shared/MenuHeaderListUpper";
 import SliderPromotions from "../../promotions";
-const img='src/assets/garbage-truck.svg'
+const img='/images/garbage-truck.svg'
 
 type Props = {
     matches: boolean;
 
 }
 const AppbarDesktop = ({matches}:Props) => {
+const Component = matches
+    ? ActionIconsContainerMobile
+    : ActionIconsContainerDesktop;
 
     return (
     /*Appbar Container
     * Headers
     * Nav
-    * */
+    * */<Component>
         <AppbarContainer>
             <MenuHeaderListUpper />
         <MenuHeaderList/>
@@ -41,10 +50,8 @@ const AppbarDesktop = ({matches}:Props) => {
                 </Typography>
 
             </AppbarHeaderLower>
-
-
-
         </AppbarContainer>
+        </Component>
     )
 }
 export default AppbarDesktop

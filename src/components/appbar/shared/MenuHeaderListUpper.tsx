@@ -5,28 +5,34 @@ import {ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import store from "../../../redux/store";
 import {useSelector} from "react-redux";
  import {RootState} from "../../../redux/types";
+import {Link} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../../redux/hooks/hooks";
+import {changeTitle} from "../../../redux/pageTitleSlice";
 
-const screenType = (state: RootState) => state.screenType
+
 const MenuHeaderListUpper = ()=>{
+    const userInfo = useAppSelector(state => state.userInfo.userLogInfo)
+    let isLoggedIn
+    if(userInfo === null){
+        isLoggedIn = false
+    }else{
+        isLoggedIn = true
+    }
+    React.useEffect(()=>{
 
-const screen = useSelector(screenType)
-
-
+    },[userInfo])
+    console.log(isLoggedIn)
+console.log('userInfo',userInfo)
     return (
          <AppbarHeader>
-            {/*<Typography variant="h3" component='span' sx={{*/}
-            {/*    color: '#d9bb33',*/}
-            {/*    paddingTop: {xs: '30px',sm:'20px', md: '0px', lg: '0px', xl: '0px', },*/}
-            {/*}}>*/}
-            {/*    NN*/}
-            {/*</Typography>*/}
+
             <Typography variant="caption" component='span' sx={{
                 color: '#49916b',
                 paddingTop: {xs: '30px',sm:'20px', md: '0px', lg: '0px', xl: '0px', },
             }}>
 
             </Typography>
-<img src={'src/assets/NNGC.LOGO.NW.svg'} style={{
+<img src={'/images/NNGC.LOGO.NW.svg'} style={{
     width: '150px',
     height: '75px',
 }}/>
@@ -42,16 +48,21 @@ const screen = useSelector(screenType)
 
             }}>
                 <ListItemButton>
-                    <ListItemText primary="View Schedule"/>
+                 <Link to={'/appointments'} >   <ListItemText primary="View Schedule"/>
+                 </Link>
                 </ListItemButton>
                 <ListItemButton>
-                    <ListItemText primary="Pay My Bill"/>
+                  <Link to={isLoggedIn?'/bill':'/login'}>
+                    <ListItemText primary="My Account"/>
+                  </Link>
                 </ListItemButton>
                 <ListItemButton>
+                    <Link to={'/donations'}>
                     <ListItemText primary="Support Northern Neck Christian School"/>
+                    </Link>
                 </ListItemButton>
             </MyList>
-             <img src={'src/assets/NNGC.LOGO.NW.svg'} style={{
+             <img src={'/images/NNGC.LOGO.NW.svg'} style={{
                  width: '150px',
                  height: '75px',
              }}/>

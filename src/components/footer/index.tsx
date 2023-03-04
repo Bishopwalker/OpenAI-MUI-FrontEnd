@@ -10,10 +10,11 @@ const Footer = () => {
 
     return (
         <FooterContainer sx={{
+            height:'auto',
            p:{xs: 0, md: 4, lg: 10, xl: 10},
             pt:12,
             pb:12,
-            fontSize: {xs: '12px', sm: '13px', md: '20px', lg: '20px', xl: '20px'},
+            fontSize: {xs: '10px', sm: '10px', md: '20px', lg: '20px', xl: '20px'},
             display: 'flex',
             flexDirection: {xs:'column', sm:'row', md:'column', lg:'column', xl:'column'},
             justifyContent: {xs:'space-around', sm:'space-around', md:'space-around', lg:'space-around', xl:'space-around'},

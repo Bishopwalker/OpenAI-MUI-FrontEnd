@@ -6,6 +6,7 @@ import {Button, Card, CardContent, CardMedia, Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import GridContent from "./GridContent";
 import ComplexButton from "./ComplexButton";
+import {Link} from "react-router-dom";
 
 const SliderComponent = () => {
     const settings = {
@@ -16,23 +17,21 @@ const SliderComponent = () => {
         slidesToScroll: 1,
         randomize: true,
         autoplay: true,
-        autoplaySpeed: 10000,
+        autoplaySpeed: 50000,
 
 
     }
-const images = ['src/assets/04_16ft_14k_gooseneck_dump.jpg',
-    'src/assets/maxresdefault.jpg', 'src/assets/NewGooseneckProPactor-500x206.png',
-    'src/assets/bttw.jpg', 'src/assets/ProPactor_NEW19-1024x471.png']
+
     return (
         <div>
             <Slider {...settings}>
-            {/*<ComplexButton image={'src/assets/04_16ft_14k_gooseneck_dump.jpg'}/>*/}
-               <GridContent img={'src/assets/04_16ft_14k_gooseneck_dump.jpg'}/>
-               <GridContent img={'src/assets/maxresdefault.jpg'}/>
+            {/*<ComplexButton image={'/images/04_16ft_14k_gooseneck_dump.jpg'}/>*/}
+              <Link to={'/'}> <GridContent img={'/images/04_16ft_14k_gooseneck_dump.jpg'}/></Link>
+                <Link to={'/'}>  <GridContent img={'/images/maxresdefault.jpg'}/> </Link>
 
-                <GridContent img={'src/assets/NewGooseneckProPactor-500x206.png'}/>
-                <GridContent img={'src/assets/bttw.jpg'}/>
-                <GridContent img={'src/assets/ProPactor_NEW19-1024x471.png'}/>
+                    <Link to={'/'}> <GridContent img={'/images/NewGooseneckProPactor-500x206.png'}/></Link>
+                        <Link to={'/'}>  <GridContent img={'/images/bttw.jpg'}/> </Link>
+                            <Link to={'/'}><GridContent img={'/images/ProPactor_NEW19-1024x471.png'}/> </Link>
 
             </Slider>
         </div>

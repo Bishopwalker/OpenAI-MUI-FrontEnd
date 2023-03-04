@@ -2,6 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import {Link} from "react-router-dom";
 
 const BusinessMenu
     = () => {
@@ -33,9 +34,21 @@ const BusinessMenu
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                <MenuItem onClick={handleClose}>Learn about Commercial Trash Pickup</MenuItem>
-                <MenuItem onClick={handleClose}>Learn about Commercial Dumpster Services</MenuItem>
-                <MenuItem onClick={handleClose}>Sign up for Services for Your Business</MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link to={'/residential_t'} >
+                    Learn about Commercial Trash Pickup
+                    </Link>
+                    </MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link to={'/dumpster'}>
+                    Learn about Commercial Dumpster Services
+                    </Link>
+                    </MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link to={'/construction'}>
+                    Sign up for Container Services for Your Business
+                    </Link>
+                    </MenuItem>
             </Menu>
         </div>
     )

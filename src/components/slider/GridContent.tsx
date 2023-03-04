@@ -7,9 +7,27 @@ import {Image, ImageBackdrop, ImageButton, ImageMarked, ImageSrc} from "../../st
 type GridContentProps = {
     img: string
 }
+
+const buttonMessages=[
+    'Join The Movement, ',
+    'Get Your Dumpster Today,',
+    `Sign up for Trash Pick Up,`,
+]
 function GridContent({img}: GridContentProps) {
+    const number = Math.floor(Math.random() * buttonMessages.length)
+    const [messageIndex, setMessageIndex] = React.useState(number)
+
+React.useEffect(() => {
+        const interval = setInterval(() => {
+            setMessageIndex((prev) => (prev + 1)%buttonMessages.length)
+        }, 50000)
+        return () => clearInterval(interval)
+
+}, [])
+
     return(
-        <Grid container spacing={5} justifyContent={'center'} >
+        <Grid container spacing={5} justifyContent={'center'} sx={{
+        }} >
             <Grid item xs={20} sm={12} md={12} lg={12} xl={12} >
                      <ImageButton
                         focusRipple
@@ -36,12 +54,12 @@ function GridContent({img}: GridContentProps) {
                                     pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
                                 }}
                             >
-                                {`Join The Movement, `}<span style={{
+                                {`${buttonMessages[messageIndex]} `}<span style={{
                                 color: 'yellow',
                                 fontWeight: 'bold',
                                 fontFamily: 'Roboto',
 
-                            }} > Zero Waste!</span>
+                            }} > We do Waste!</span>
                                 <ImageMarked className="MuiImageMarked-root" />
                             </Typography>
                         </Image>

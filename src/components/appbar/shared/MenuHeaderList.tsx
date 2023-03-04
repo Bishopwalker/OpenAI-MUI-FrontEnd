@@ -7,7 +7,7 @@ import BusinessMenu from "../../navMenu/BusinessMenu";
 import ServicesMenu from "../../navMenu/ServicesMenu";
 
 
-const img='src/assets/garbage-truck.svg'
+const img='/images/garbage-truck.svg'
 
 
 const MenuHeaderList = () => {

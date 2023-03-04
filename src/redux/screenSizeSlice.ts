@@ -28,4 +28,4 @@ export default function screenSizeReducer(state = initialState, action: ActionTy
     }
 }
 
-export const screenType= (state: RootState) => state.screenType;
+//export const screenType= (state: RootState) => state.screenType;

@@ -6,46 +6,53 @@ import Typography from "@mui/material/Typography";
 import UndoIcon from '@mui/icons-material/Undo';
 import RedoIcon from '@mui/icons-material/Redo';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import {Link} from "react-router-dom";
 // import 'slick-carousel/slick/slick.css'
 // import 'slick-carousel/slick/slick-theme.css'
 
 const images =[
     {
     name:'Residential Trash Pickup',
-    scr:'src/assets/trashcanBig.jpg',
+    scr:'/images/trashcanBig.jpg',
     alt:'trashcan',
-    description:'We offer residential trash pickup for your home. We have a variety of trash cans to choose from.'
+    description:'We offer residential trash pickup for your home. We have a variety of trash cans to choose from.',
+        link:'/resential_t'
 
 },
     {
         name:'Commercial Trash Pickup',
-        scr:'src/assets/Commercial-dumpster-rental.jpg',
+        scr:'/images/Commercial-dumpster-rental.jpg',
         alt:'commercial trashcan',
-        description:'We offer commercial trash pickup for your business. We have a variety of trash cans to choose from.'
+        description:'We offer commercial trash pickup for your business. We have a variety of trash cans to choose from.',
+        link:'/business'
     },
     {
         name:'Recycling Pickup',
-        scr:'src/assets/recycling.jpg',
+        scr:'/images/recycling.jpg',
         alt:'recycle',
-        description:'We offer recycling pickup for your home or business. We have a variety of trash cans to choose from.'
+        description:'We offer recycling pickup for your home or business. We have a variety of trash cans to choose from.',
+        link:'/recycling'
     },
     {
         name:'Yard Waste Pickup',
-        scr:'src/assets/greyBigTrashcan.jpg',
+        scr:'/images/greyBigTrashcan.jpg',
         alt:'yard waste',
-        description:'We offer yard waste pickup for your home or business. We have a variety of trash cans to choose from.'
+        description:'We offer yard waste pickup for your home or business. We have a variety of trash cans to choose from.',
+        link:'/yardwaste'
     },
     {
         name:'Roll Off Dumpster Rental',
-        src:'src/assets/rollOff.jpg',
+        scr:'/images/rollOff.jpg',
         alt:'roll off dumpster',
-        description:'We offer roll off dumpster rental for your home or business. We have a variety of trash cans to choose from.'
+        description:'We offer roll off dumpster rental for your home or business. We have a variety of trash cans to choose from.',
+        link:'/rollOff'
     },
     {
         name:'Construction/Commercial Dumpster Rental',
-        src:'src/assets/yellowRollOFf.jpg',
+        scr:'/images/yellowRollOFf.jpg',
         alt:'construction dumpster',
-        description:'We offer construction/commercial dumpster rental for your home or business. We have a variety of trash cans to choose from.'
+        description:'We offer construction/commercial dumpster rental for your home or business. We have a variety of trash cans to choose from.',
+        link:'/construction'
 
     }
 ]
@@ -96,7 +103,7 @@ const BannerCarousel = () => {
                 </ButtonGroup>
         <Slider ref={setSliderRef} {...settings}>
             {images.map((image, index) => (
-
+            <Link key={index} to={image.link} >
                 <Card sx={{ maxWidth: 400,height:400 }}>
                     <CardMedia
                         sx={{ height: 150, width: 275, margin: 'auto' }}
@@ -116,6 +123,7 @@ const BannerCarousel = () => {
                         <Button size="small">Learn More</Button>
                     </CardActions>
                 </Card>
+            </Link>
 
             ))}
             </Slider>
