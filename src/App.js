@@ -9,15 +9,12 @@ import Footer from './component/footer/footer.js';
 function App() {
   return (
     <div className="App">
-		<Header />
+	<Header />
         <Slider /> 
         <About /> 
         <Offer /> 
         <Team /> 
-		<Footer />
-       
-     
-      
+	<Footer />
     </div>
   );
 }
