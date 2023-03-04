@@ -9,18 +9,15 @@ import {Link} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../redux/hooks/hooks";
 import {changeTitle} from "../../../redux/pageTitleSlice";
 
+type Anchor = 'top' | 'left' | 'bottom' | 'right';
+
+
 
 const MenuHeaderListUpper = ()=>{
-    const userInfo = useAppSelector(state => state.userInfo.userLogInfo)
-    let isLoggedIn
-    if(userInfo === null){
-        isLoggedIn = false
-    }else{
-        isLoggedIn = true
-    }
-    React.useEffect(()=>{
+    let state = store.getState();
+    const userInfo = state?useAppSelector(state => state.userInfo):null
 
-    },[userInfo])
+
 console.log('userInfo',userInfo)
     return (
          <AppbarHeader>
@@ -51,7 +48,7 @@ console.log('userInfo',userInfo)
                  </Link>
                 </ListItemButton>
                 <ListItemButton>
-                  <Link to={isLoggedIn?'/signup':'/login'}>
+                  <Link to={userInfo?.enabled?'/signup':'/login'}>
                     <ListItemText primary="My Account"/>
                   </Link>
                 </ListItemButton>

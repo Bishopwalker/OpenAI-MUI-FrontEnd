@@ -3,7 +3,7 @@ import {LoginContainer, LoginContent} from "../../styles/login";
 import {useAppDispatch} from "../../redux/hooks/hooks";
 import {changeTitle} from "../../redux/pageTitleSlice";
 import {Button, Typography} from "@mui/material";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Field, Form} from "react-final-form";
 import FormField from "../../components/forms/FormField";
 import {validateLogin} from "../../components/forms/validate";
@@ -17,17 +17,14 @@ import axios from "axios";
 import Error from "../../components/forms/Error";
 import {changeUserLogInfo} from "../../redux/userLogInfoSlice";
 
+
 const Login = () => {
-    const [sent, setSent] = React.useState(false);
-    const [response, setResponse] = React.useState<any>(null);
-    const [token, setToken] = React.useState<any>(null);
 
     const dispatch = useAppDispatch()
     React.useEffect(()=>{
         dispatch( changeTitle('Login Form'))
-        dispatch(changeUserLogInfo({userLogInfo:response, isLoggedIn: true, token: token}))
-    },[dispatch,response,setResponse])
-
+    },[])
+const nav = useNavigate()
     const onSubmit = async (values: any) => {
 
         // @ts-ignore
@@ -35,9 +32,10 @@ const Login = () => {
 
         await axios.post('http://localhost:8080/auth/nngc/authenticate', values)
             .then((response) => {
-               setResponse(response.data.customer )
-                setToken(response.data.token)
-                setSent(true)
+                dispatch(changeUserLogInfo({userInfo:response.data.customer, isLoggedIn: true, token: response.data.token}))
+         if(response.data.customer) {
+             nav('/')
+         }
             })
             .catch((error) => {
                 console.log(error)

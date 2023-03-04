@@ -6,7 +6,7 @@ import store from "./store";
 export const userLogInfoSlice = createSlice({
         name:'userLogInfo',
     initialState: {
-        userLogInfo: {
+
             id: '',
             name: '',
             email: '',
@@ -14,6 +14,7 @@ export const userLogInfoSlice = createSlice({
             phone: '',
             houseNumber: '',
             streetName: '',
+            enabled: false,
             city: '',
             state: '',
             zipCode: '',
@@ -27,15 +28,15 @@ export const userLogInfoSlice = createSlice({
 
         },
 
-    },
+
     reducers: {
         changeUserLogInfo: (state, action) => {
-            const mergedState = {...state.userLogInfo, ...action.payload}
-            return mergedState;
+            const mergedState = {...state, ...action.payload}
+            return action.payload;
 
         },
         updateToken: (state, action) => {
-            const mergedState = {...state.userLogInfo, ...action.payload}
+            const mergedState = {...state, ...action.payload}
 
             console.log(action.payload)
             return mergedState;

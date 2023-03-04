@@ -42,6 +42,7 @@ export const AppbarHeader = styled(AppBar)(() => ({
     display: 'flex',
   flexDirection:  'row',
  //justifyContent: 'flex-end',
+   background:'#ffffff',
 
  } ));
 

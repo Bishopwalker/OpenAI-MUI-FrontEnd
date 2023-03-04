@@ -30,10 +30,11 @@ import {useLocation} from "react-router-dom";
 import {changeUserLogInfo} from "./redux/userLogInfoSlice";
 import {LoginContainer} from "./styles/login";
 import HomeLink from "./components/forms/HomeLink";
+import RequireEnabled from "./site-pages/login/auth/RequireEnabled";
 
 function App() {
     const screenTitle = useAppSelector(state => state.title)
-    const userInfo = useAppSelector(state => state.userInfo.userLogInfo)
+    const userInfo = useAppSelector(state => state.userInfo)
 
     console.log(screenTitle)
     React.useEffect(() => {
@@ -80,11 +81,15 @@ appDrawer
                             <Route path={'/recycling'} element={<Recycling/>}/>
                             <Route path={'/yardwaste'} element={<YardWaste/>}/>
                             <Route path={'/construction/*'} element={<Construction/>}/>
+                              <Route path={'/login'} element={<Login/>}/>
+                                <Route path={'/signup'} element={<Signup/>}/>
+
+                            <Route element={<RequireEnabled/>}>
                             <Route path={'/donations'} element={<AppointmentPickerEl/>}/>
                             <Route path={'/appointments'} element={<ClassAppointments/>}/>
                             <Route path={'/bill'} element={<Bill/>}/>
-                              <Route path={'/login'} element={<Login/>}/>
-                                <Route path={'/signup'} element={<Signup/>}/>
+                            </Route>
+
                         </Routes>
                         <Footer/>
                     </Container>
