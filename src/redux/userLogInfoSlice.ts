@@ -18,7 +18,6 @@ export const userLogInfoSlice = createSlice({
             city: '',
             state: '',
             zipCode: '',
-            enabled: false,
            authorities: [
                {authority: ''}
            ],
